@@ -1,5 +1,7 @@
 
+import 'package:egycal/features/login/presentation/login_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
@@ -36,7 +38,9 @@ class Welcome extends StatelessWidget {
           ),),
         
           SizedBox(height: 200),
-             ElevatedButton(onPressed: (){}, child:
+             ElevatedButton(onPressed: (){
+              Get.to(() => LoginPage());
+             }, child:
             Text('Start',
             style: TextStyle(
               color: Colors.white,
