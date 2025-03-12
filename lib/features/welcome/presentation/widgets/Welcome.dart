@@ -38,6 +38,7 @@ class Welcome extends StatelessWidget {
           ),),
         
           SizedBox(height: 200),
+          
              ElevatedButton(onPressed: (){
               Get.to(() => LoginPage());
              }, child:
