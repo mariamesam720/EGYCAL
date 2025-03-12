@@ -1,5 +1,6 @@
 
 import 'package:egycal/features/login/presentation/login_page.dart';
+import 'package:egycal/features/signUp/presentation/screens/signUp_page1.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -69,7 +70,9 @@ class Welcome extends StatelessWidget {
                   fontWeight: FontWeight.normal,
                   color: Color(0xFF6E7179)
                 ),),
-              TextButton(onPressed: (){}, child: Text('sign up ', style: TextStyle(
+              TextButton(onPressed: (){
+                Get.to(() => SignUpPage());
+              }, child: Text('sign up ', style: TextStyle(
               fontFamily: 'lnter',
               fontSize: 16,
               fontWeight: FontWeight.normal,

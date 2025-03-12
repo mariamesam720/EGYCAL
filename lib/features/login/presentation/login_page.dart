@@ -1,7 +1,11 @@
 import 'package:egycal/core/widgets/custom_elev_button.dart';
 import 'package:egycal/core/widgets/custom_textfield.dart';
+import 'package:egycal/features/forgot_reset_passward/presentation/screens/forgot_password_page.dart';
 import 'package:egycal/features/login/presentation/models/login_model.dart';
+import 'package:egycal/features/signUp/presentation/screens/signUp_page1.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -19,12 +23,10 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30),
-
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 55),
         child: Form(
           key: _formKey,
           child: Column(
-            
             children: [
               Row(
                 children: [
@@ -52,50 +54,37 @@ class _LoginPageState extends State<LoginPage> {
                 validator: loginModel.validatePassword,
                 onSaved: loginModel.saveEmail,
               ),
-          
               Spacer(flex: 2),
-              ButtonWidget(buttonName: 'Login', onPressedfn: () {
-                if (_formKey.currentState!.validate()) {
-                        _formKey.currentState!.save();
-                        print(
-                          'Logging in with ${loginModel.email} and ${loginModel.password}',
-                        );
-                        // Navigate to another page or perform login logic
-                      }}),
+              ButtonWidget(
+                  buttonName: 'Login',
+                  onPressedfn: () {
+                    if (_formKey.currentState!.validate()) {
+                      _formKey.currentState!.save();
+                    }
+                  }),
               const SizedBox(height: 16),
               GestureDetector(
                 onTap: () {
-                  
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) {
-                  //       return ForgotPasswordPage();
-                  //     },
-                  //   ),
-                  // );
+                  Get.to(() => ForgotPasswordPage());
                 },
                 child: const Text(
                   "Forgot password?",
-                  style: TextStyle(fontSize: 15, color: Color(0xFF2F6F72)),
+                  style: TextStyle(fontSize: 16, color: Color(0xFF2F6F72)),
                 ),
               ),
               SizedBox(height: 10),
               GestureDetector(
                 onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) {
-                  //       return SignUpPage();
-                  //     },
-                  //   ),
-                  // );
+                  Get.to(() => SignUpPage());
                 },
                 child: RichText(
                   text: TextSpan(
                     text: "Don't have an account? ",
-                    style: TextStyle(color: Colors.black, fontSize: 15),
+                    style: TextStyle(
+                        fontFamily: 'lnter',
+                        fontSize: 16,
+                        fontWeight: FontWeight.normal,
+                        color: Color(0xFF6E7179)),
                     children: <TextSpan>[
                       TextSpan(
                         text: ' Sign up',
