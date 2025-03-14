@@ -12,8 +12,10 @@ class EgyCal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      home: SplashView(),
+    return SafeArea(
+      child: GetMaterialApp(
+        home: SplashView(),
+      ),
     );
   }
 }

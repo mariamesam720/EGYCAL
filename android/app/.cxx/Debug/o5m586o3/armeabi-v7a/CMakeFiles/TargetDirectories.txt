@@ -1,0 +1,2 @@
+C:/Flutter_Projects/Project_repo/EGYCAL/android/app/.cxx/Debug/o5m586o3/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Flutter_Projects/Project_repo/EGYCAL/android/app/.cxx/Debug/o5m586o3/armeabi-v7a/CMakeFiles/rebuild_cache.dir
