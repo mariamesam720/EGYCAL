@@ -120,11 +120,12 @@ class _SignUpPageState extends State<SignUpPage> {
                     if (_formKey.currentState != null &&
                         _formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
+                      PageController pageController = PageController();
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return SignUpPage2();
+                            return SignUpPage2(controller: pageController,);
                           },
                         ),
                       ); // Go back to the login page

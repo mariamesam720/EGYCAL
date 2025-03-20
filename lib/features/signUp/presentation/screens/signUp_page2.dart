@@ -5,7 +5,7 @@ import 'package:egycal/features/signUp/presentation/models/signUp_model.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage2 extends StatelessWidget {
-  SignUpPage2({super.key});
+  SignUpPage2({super.key, required controller});
     final PageController _controller = PageController();
   final _formKey = GlobalKey<FormState>();
   final SignUpModel signUpModel = SignUpModel();
@@ -68,9 +68,10 @@ class SignUpPage2 extends StatelessWidget {
                   onPressedfn: () {
                      if (_formKey.currentState != null && _formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
-                    
+
                       }
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Gender()));
+                                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Gender(controller: _controller,)));
+
 
                   },
                 ),

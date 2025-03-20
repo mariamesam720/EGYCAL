@@ -20,16 +20,16 @@ class CustomText extends StatelessWidget {
           style: TextStyle(
             fontFamily: 'Inter',
             fontSize: 20,
-            fontWeight: FontWeight.normal,
-            color: Color(0xFF102A43)
+            fontWeight: FontWeight.w500,
+            color: Color(0xFF0D1220)
           ),),
       
           Text(description,
           style: TextStyle(
             fontFamily: 'Inter',
             fontSize: 16,
-            fontWeight: FontWeight.w200,
-            color: Color(0xFF102A43)
+            fontWeight: FontWeight.w300,
+            color: Color(0xFF6E7179)
           ),)
         ],
       ),
