@@ -4,7 +4,9 @@ import 'package:get/get.dart';
 import 'features/splash/presentation/splashview.dart';
 
 void main() {
-  runApp(EgyCal());
+  runApp(EgyCal(
+    
+  ));
 }
 
 class EgyCal extends StatelessWidget {

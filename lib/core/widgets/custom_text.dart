@@ -22,7 +22,8 @@ class CustomText extends StatelessWidget {
             fontSize: 20,
             fontWeight: FontWeight.w500,
             color: Color(0xFF0D1220)
-          ),),
+          ),
+          textAlign: TextAlign.center,),
       
           Text(description,
           style: TextStyle(

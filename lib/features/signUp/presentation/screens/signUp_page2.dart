@@ -70,7 +70,7 @@ class SignUpPage2 extends StatelessWidget {
                         _formKey.currentState!.save();
 
                       }
-                                            Navigator.push(context, MaterialPageRoute(builder: (context)=>Gender(controller: _controller,)));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Gender(controller: _controller,)));
 
 
                   },

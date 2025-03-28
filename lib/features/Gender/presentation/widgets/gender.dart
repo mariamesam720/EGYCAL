@@ -1,7 +1,9 @@
+import 'package:egycal/core/utilis/size_config.dart';
 import 'package:egycal/core/widgets/Navigation_buttons.dart';
 
 import 'package:egycal/core/widgets/custom_outlined_button.dart';
 import 'package:egycal/core/widgets/custom_text.dart';
+import 'package:egycal/features/height/presentation/widgets/height.dart';
 import 'package:egycal/features/signUp/presentation/screens/signUp_page2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -20,7 +22,6 @@ class _GenderState extends State<Gender> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFFBFB),
       body: Center(
         child: Column(
           mainAxisSize:
@@ -60,13 +61,14 @@ class _GenderState extends State<Gender> {
               isSelected: selectedgender == 'Female',
             ),
             SizedBox(
-              height: 120,
+              height: SizeConfig.defaultSize!*20,
             ),
-            NavigationButtons(
-                onBack: () {
-                  Navigator.pop(context);
-                },
-                onNext: () {})
+            NavigationButtons(onBack: () {
+              Navigator.pop(context);
+            }, onNext: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Height()));
+            })
           ],
         ),
       ),

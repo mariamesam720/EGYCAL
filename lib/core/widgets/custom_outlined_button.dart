@@ -14,10 +14,10 @@ class CustomOutlinedButton extends StatelessWidget {
         width: 312.0,
         height: 65.0,
         decoration: BoxDecoration(
-           color: Color(0xFFFFFFFF),
+           color: Color(0xFFFFFBFB),
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-            color:isSelected? Color(0xFF337277):Color(0xFFFFFFFF),
+            color:isSelected? Color(0xFF337277):Color(0xFFFFFBFB),
             )),
         child: Center(
           child: Text(
