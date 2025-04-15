@@ -14,11 +14,11 @@ class ProfileSection extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 10, top: 5, right: 5),
-            child: avatarimg(image: "images/Ellipse 8.png",),
+            child: avatarimg(image: "images/Ellipse 11.png",),
           ),
           SizedBox(width: 3,),
           Padding(
-            padding: const EdgeInsets.only(bottom: 5),
+            padding: const EdgeInsets.only(bottom: 15),
             child: Text('Hello Ahmed',
             style: TextStyle(
               fontFamily: "MarkaziText",

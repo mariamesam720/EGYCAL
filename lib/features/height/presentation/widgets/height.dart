@@ -25,10 +25,10 @@ class _HeightState extends State<Height> {
             child: CustomText(
                 tittle: "What's your height ?",
                 description:
-                    "The taller you are, the more calories\n               your body needs"),
+                    "The taller you are, the more \n  calories your body needs"),
           ),
           SizedBox(
-            height: 200,
+            height: SizeConfig.defaultSize!*20,
           ),
           //height picker
           Center(

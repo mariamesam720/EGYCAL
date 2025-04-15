@@ -30,6 +30,8 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.8
   dots_indicator: ^4.0.1
+  percent_indicator: ^3.4.0
+  google_nav_bar: ^5.0.6
   flutter:
     sdk: flutter
   get: ^4.6.6
@@ -86,7 +88,17 @@ flutter:
         - asset: assets/Fonts/Markazi_Text/static/MarkaziText-Bold.ttf
         - asset: assets/Fonts/Markazi_Text/static/MarkaziText-Medium.ttf
         - asset: assets/Fonts/Markazi_Text/static/MarkaziText-Regular.ttf
-        - asset: assets/Fonts/Markazi_Text/MarkaziText-VariableFont_wght.ttf     
-  
+        - asset: assets/Fonts/Markazi_Text/MarkaziText-VariableFont_wght.ttf
+    - family: Carrois Gothic
+      fonts:
+        - asset: assets/Fonts/Carrois_Gothic/CarroisGothic-Regular.ttf
+    - family: Carter One
+      fonts:
+        - asset: assets/Fonts/Carter_One/CarterOne-Regular.ttf
+    - family: Inter
+      fonts:
+        - asset: assets/Fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf 
+        - asset: assets/Fonts/Inter/Inter-VariableFont_opsz,wght.ttf    
+   
   #For details regarding fonts from package dependencies,
   #see https://flutter.dev/to/font-from-package
