@@ -18,6 +18,7 @@ class Home extends StatelessWidget {
         
           Expanded(
             child: GridView.count(
+              
               padding: EdgeInsets.all(20),
             crossAxisCount: 2,
             mainAxisSpacing: 10,
@@ -25,9 +26,9 @@ class Home extends StatelessWidget {
             childAspectRatio: 1.3,
             children: [
               Cards(icon: Icons.fastfood, label: 'food',onTap: (){},),
-              Cards(icon: Icons.bar_chart, label: 'Reports',),
-              Cards(icon: Icons.add_circle_outline, label: 'Add',),
-              Cards(icon: Icons.pie_chart_outline, label: 'Diary',),
+              Cards(icon: Icons.bar_chart, label: 'Reports',onTap: (){},),
+              Cards(icon: Icons.add_circle_outline, label: 'Add',onTap: (){},),
+              Cards(icon: Icons.pie_chart_outline, label: 'Diary',onTap: (){},),
             ],
             ),
           )
