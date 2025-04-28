@@ -3,6 +3,7 @@ import 'package:egycal/core/widgets/Navigation_buttons.dart';
 
 import 'package:egycal/core/widgets/custom_outlined_button.dart';
 import 'package:egycal/core/widgets/custom_text.dart';
+import 'package:egycal/features/goal/presentation/widgets/goal.dart';
 import 'package:egycal/features/height/presentation/widgets/height.dart';
 import 'package:egycal/features/signUp/presentation/screens/signUp_page2.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +68,7 @@ class _GenderState extends State<Gender> {
               Navigator.pop(context);
             }, onNext: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Height()));
+                  context, MaterialPageRoute(builder: (context) => Goal()));
             })
           ],
         ),
