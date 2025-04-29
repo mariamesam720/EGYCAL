@@ -1,3 +1,6 @@
+import 'package:egycal/core/utilis/size_config.dart';
+import 'package:egycal/features/CreateAvatar/presentation/widgets/circlea_vatar.dart';
+import 'package:egycal/features/Home/presentation/widgets/CustomClipper.dart';
 import 'package:egycal/features/Home/presentation/widgets/calories_wheel.dart';
 import 'package:flutter/material.dart';
 
@@ -6,60 +9,88 @@ class CalorieIntake extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10),
+    return ClipPath(
+      
+      clipper: Customclipper(),
       child: Container(
-        width: 356,
-        height: 220.12,
-        padding: EdgeInsets.all(20),
+        width: SizeConfig.screenWidth,
+        height: SizeConfig.screenHeight!*0.4,
+      
         decoration: BoxDecoration(
-          color: Color(0XFF42B5BF),
-          border:Border.symmetric(),
-          borderRadius: BorderRadius.circular(30)
+          gradient: LinearGradient(colors:[Color(0xFFF152D2F),Color(0xFFF438F95)],
+           begin: Alignment.bottomRight,
+           end: Alignment.topRight,
+          )
         ),
         child: Row(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Your progress',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontFamily: 'Carrois Gothic',
-                    color: Colors.white
+           children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 10,left: 5),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    decoration: BoxDecoration(
+                      color: Color(0xFF152D2F),
+                      borderRadius: BorderRadius.circular(50)
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                      SizedBox(
+                        width: 30,
+                        height: 30,
+                        child: avatarimg(image: "images/Ellipse 8.png",)),
+                        SizedBox(width: 8,),
+                      Text("Good morning , Ahmed", style: TextStyle(
+                        color: Colors.white
+                      ),)
+                      ],
+                    
+                    ),
+              
                   ),
-                ),
-                Text(
-                  'Remaining = Goal-Food',
-                  style: TextStyle(
-                    fontSize: 10,
-                    fontFamily: 'Carrois Gothic',
-                    color: Colors.white
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text(
+                      'Your progress',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'Carrois Gothic',
+                        color: Colors.white,
+                        
+                      ),
+                    ),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10
+                    ),
+                    child: Text(
+                      'Remaining = Goal-Food',
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontFamily: 'Carrois Gothic',
+                        color: Colors.white
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 10,left: 10),
+            padding: const EdgeInsets.only(bottom: 20,),
             child: SizedBox(
-              width: 167.71,
+              width: 100,
               height: 162.74,
-            child: Stack(
-              fit: StackFit.expand,
-              children: [
-              CaloriesWheel()],)
+            child: CaloriesWheel()
             ),
           ),
       
           ],
         
         ),
-    
-        
-    
-    ),
+      ),
     );
-    
   }
 }

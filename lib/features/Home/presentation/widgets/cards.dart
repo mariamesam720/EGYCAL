@@ -12,16 +12,18 @@ class Cards extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
+        width: 40,
         decoration: BoxDecoration(
+          color: Color(0xFF152D2F),
             borderRadius: BorderRadius.circular(12),
-            border: Border.all(width: 2, color: Color(0xFF337277))),
+          ),
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(icon, color: Color(0xFF337277),),
+              Icon(icon, color: Color(0xFFFFFFFF),),
               SizedBox(height: 8,),
-              Text(label, style: TextStyle(fontFamily: 'Inter',color: Color(0xFF337277)),)
+              Text(label, style: TextStyle(fontFamily: 'Inter',color: Color(0xFFFFFFFF)),)
               ],
           ),
         ),
