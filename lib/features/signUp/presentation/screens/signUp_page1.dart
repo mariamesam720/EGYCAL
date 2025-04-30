@@ -1,3 +1,4 @@
+import 'package:egycal/core/utilis/size_config.dart';
 import 'package:egycal/core/widgets/custom_elev_button.dart';
 import 'package:egycal/core/widgets/custom_textfield.dart';
 import 'package:egycal/features/signUp/presentation/models/signUp_model.dart';
@@ -5,6 +6,8 @@ import 'package:egycal/features/signUp/presentation/screens/signUp_page2.dart';
 import 'package:egycal/features/signUp/presentation/widgets/custom_dropdown.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -22,6 +25,17 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        toolbarHeight: 80,
+        title: const Text('Create an account'),
+        leading: IconButton(
+          
+          icon: const Icon(Icons.arrow_back_ios_new),
+          onPressed: () => Get.back(),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30),
         child: Form(
@@ -29,23 +43,7 @@ class _SignUpPageState extends State<SignUpPage> {
           child: ListView(
             dragStartBehavior: DragStartBehavior.start,
             children: [
-              Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  Spacer(flex: 8),
-                  const Text(
-                    "Create an account",
-                    style: TextStyle(color: Colors.black, fontSize: 22),
-                  ),
-                  Spacer(flex: 10),
-                ],
-              ),
-              SizedBox(height: 110,),
+              SizedBox(height: 80,),
               TextFieldWidget(
                 hintText: 'First name',
                 obscureText: false,
@@ -70,48 +68,48 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ),
               const SizedBox(height: 20),
-              SizedBox(
-                width: 200,
-                child: Column(
-                   crossAxisAlignment: CrossAxisAlignment.start, // Ensures full width
-                  children: [
-                    CustomDropdown(
-                      value: signUpModel.day,
-                      labelText: 'Day',
-                      items: signUpModel.days,
-                      validator: signUpModel.validateDay,
-                      onChanged: (value) {
-                        setState(() {
-                          signUpModel.day = value;
-                        });
-                      },
-                    ),
-                    CustomDropdown(
-                      value: signUpModel.month,
-                      labelText: 'Months',
-                      items: signUpModel.months,
-                      validator: signUpModel.validateMonth,
-                      onChanged: (value) {
-                        setState(() {
-                          signUpModel.month = value;
-                        });
-                      },
-                    ),
-                    CustomDropdown(
-                      value: signUpModel.year,
-                      labelText: 'Years',
-                      items: signUpModel.years,
-                      validator: signUpModel.validateYear,
-                      onChanged: (value) {
-                        setState(() {
-                          signUpModel.year = value;
-                        });
-                      },
-                    ),
-                  ],
-                ),
+              Column(
+                 crossAxisAlignment: CrossAxisAlignment.start, // Ensures full width
+                children: [
+                  CustomDropdown(
+                    value: signUpModel.day,
+                    labelText: 'Day',
+                    items: signUpModel.days,
+                     validator: signUpModel.validateDay,
+                    
+                    onChanged: (value) {
+                      setState(() {
+                        signUpModel.day = value;
+                      });
+                    },
+                  ),
+                  CustomDropdown(
+                    value: signUpModel.month,
+                    labelText: 'Month',
+                    items: signUpModel.months,
+                     validator: signUpModel.validateMonth,
+                   
+                    onChanged: (value) {
+                      setState(() {
+                        signUpModel.month = value;
+                      });
+                    },
+                  ),
+                  CustomDropdown(
+                    value: signUpModel.year,
+                    labelText: 'Year',
+                    items: signUpModel.years,
+                    validator: signUpModel.validateYear,
+                  
+                    onChanged: (value) {
+                      setState(() {
+                        signUpModel.year = value;
+                      });
+                    },
+                  ),
+                ],
               ),
-              const SizedBox(height: 100),
+              SizedBox(height: SizeConfig.defaultSize! * 6),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: ButtonWidget(

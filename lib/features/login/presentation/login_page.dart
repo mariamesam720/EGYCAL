@@ -1,11 +1,12 @@
 import 'package:egycal/core/widgets/custom_elev_button.dart';
 import 'package:egycal/core/widgets/custom_textfield.dart';
+import 'package:egycal/features/food_detailes/presentation/models/food_details_mode.dart';
 import 'package:egycal/features/forgot_reset_passward/presentation/screens/forgot_password_page.dart';
 import 'package:egycal/features/login/presentation/models/login_model.dart';
+import 'package:egycal/features/search/presentation/search_page.dart';
 import 'package:egycal/features/signUp/presentation/screens/signUp_page1.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -17,13 +18,44 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final LoginModel loginModel = LoginModel();
-
+  final List<FoodDetailsModel> food = [
+    FoodDetailsModel(
+    engname: "Mahshi",
+    arname: 'محشي',
+    imagePath: "images/mahshi.png",
+    calories: 164,
+    proteins: 5,
+    fats: 61,
+    carbs: 34,
+    nutritionFacts: NutritionModel(
+      servingSize: '100 g',
+      totalFat: 19.3,
+      saturatedFat: 7.308,
+      transFat: 0.0,
+      polyunsaturatedFat: 1.639,
+      monounsaturatedFat: 9.145,
+      cholesterol: 39,
+      sodium: 1108,
+      totalCarbohydrate: 2.60,
+      dietaryFiber: 0.0,
+      sugars: 0.0,
+      protein: 11.50,
+      calcium: 11,
+      iron: 0.66,
+      potassium: 156,
+      vitaminA: 0,
+      vitaminC: 0,
+      vitaminD: 0,
+      calories: 164,
+    ),
+  )
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 55),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 40),
         child: Form(
           key: _formKey,
           child: Column(
@@ -60,6 +92,10 @@ class _LoginPageState extends State<LoginPage> {
                   onPressedfn: () {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
+                      Get.to(
+                        () => SearchPage(allFoods: food,),
+                        // () => FoodListPage(),
+                      );
                     }
                   }),
               const SizedBox(height: 16),
