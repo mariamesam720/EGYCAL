@@ -5,8 +5,9 @@ import 'package:get/get.dart';
 
 class NextCustomButton extends StatelessWidget {
     final PageController pageController ;
+    final VoidCallback onPressedfun;
 
-  const NextCustomButton({super.key, required this.pageController});
+  const NextCustomButton({super.key, required this.pageController,required this.onPressedfun});
 
   @override
   Widget build(BuildContext context) {
@@ -15,22 +16,7 @@ class NextCustomButton extends StatelessWidget {
         bottom: SizeConfig.defaultSize! * 4,
         right: 32,
         child: ElevatedButton(
-          onPressed: () {
-               if (pageController.positions.isNotEmpty) {  
-                double currentPage = pageController.page ?? 0;
-
-                if (currentPage < 2) {
-                  pageController.animateToPage(
-                    (currentPage + 1).toInt(), 
-                    duration: Duration(milliseconds: 500),
-                    curve: Curves.easeOutCirc,
-                  );
-                } else {
-                  Get.to(() => Welcome());
-                }
-              }
-          },
-            
+          onPressed: ()=>onPressedfun(),
           child: Icon(
             Icons.navigate_next,
             color: Colors.white,
