@@ -63,6 +63,7 @@ class CalorieIntake extends StatelessWidget {
                       ),
                     ),
                   ),
+                  
                   Padding(
                     padding: const EdgeInsets.only(left: 10
                     ),
@@ -72,6 +73,18 @@ class CalorieIntake extends StatelessWidget {
                         fontSize: 10,
                         fontFamily: 'Carrois Gothic',
                         color: Colors.white
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text(
+                      'Base Goal',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontFamily: 'Carrois Gothic',
+                        color: Colors.white,
+                        
                       ),
                     ),
                   ),
