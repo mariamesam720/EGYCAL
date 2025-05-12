@@ -42,20 +42,20 @@ class Welcome extends StatelessWidget {
           
              ElevatedButton(onPressed: (){
               Get.to(() => LoginPage());
-             }, child:
-            Text('Start',
-            style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'lnter',
-              fontSize: 16,
-            ),
-            ),
+             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Color(0xFF337277),
             shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             fixedSize: Size(312, 52),
             padding: EdgeInsets.symmetric(horizontal: 24,vertical: 12)
 
+            ), 
+            child: Text('Start',
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'lnter',
+              fontSize: 16,
+            ),
             )),
             
               

@@ -1,11 +1,13 @@
 import 'package:egycal/core/widgets/custom_elev_button.dart';
 import 'package:egycal/core/widgets/custom_textfield.dart';
+import 'package:egycal/features/Home/presentation/widgets/home.dart';
+import 'package:egycal/features/change_password/presentation/change_password_page.dart';
+import 'package:egycal/features/diary/presentation/diary_page.dart';
 import 'package:egycal/features/forgot_reset_passward/presentation/screens/forgot_password_page.dart';
 import 'package:egycal/features/login/presentation/models/login_model.dart';
 import 'package:egycal/features/sign_up/presentation/screens/sign_up_page1.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -17,13 +19,12 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final LoginModel loginModel = LoginModel();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 55),
+        padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 40),
         child: Form(
           key: _formKey,
           child: Column(
@@ -44,14 +45,17 @@ class _LoginPageState extends State<LoginPage> {
                 icon: Icons.email_outlined,
                 obscureText: false,
                 validator: loginModel.validateEmail,
+                onChanged: (value) => loginModel.email = value,
                 onSaved: loginModel.saveEmail,
               ),
               const SizedBox(height: 16),
               TextFieldWidget(
                 hintText: "Password",
+
                 icon: Icons.lock_outline,
                 obscureText: true,
                 validator: loginModel.validatePassword,
+                onChanged: (value) => loginModel.password = value,
                 onSaved: loginModel.saveEmail,
               ),
               Spacer(flex: 2),
@@ -60,6 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                   onPressedfn: () {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
+                      Get.to(Home());
                     }
                   }),
               const SizedBox(height: 16),

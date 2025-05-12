@@ -1,5 +1,5 @@
 import 'package:egycal/core/widgets/custom_appbar.dart';
-import 'package:egycal/features/create_avatar/presentation/widgets/Avatar_row.dart';
+import 'package:egycal/features/create_avatar/presentation/widgets/avatar_row.dart';
 import 'package:flutter/material.dart';
 
 class Avatar extends StatefulWidget {

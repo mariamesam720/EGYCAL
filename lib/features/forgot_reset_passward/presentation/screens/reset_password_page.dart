@@ -1,8 +1,11 @@
+import 'package:egycal/core/utilis/size_config.dart';
 import 'package:egycal/core/widgets/custom_elev_button.dart';
 import 'package:egycal/core/widgets/custom_textfield.dart';
 import 'package:egycal/features/forgot_reset_passward/presentation/models/forgot_reset_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
+
 
 class ResetPasswordPage extends StatefulWidget {
   const ResetPasswordPage({super.key});
@@ -21,41 +24,43 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        toolbarHeight: 80,
+        title: const Text('Reset Password'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new),
+          onPressed: () => Get.back(),
+        ),
+      ),
+      // appBar: CustomAppbar(
+      //     text: 'Reset Password',
+      //     onIconpress: () => Get.back(),
+      //     icon: Icons.arrow_back_ios_new),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 55),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
         child: Form(
           key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+          child: ListView(
+            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Row(
+              SizedBox(
+                height: SizeConfig.defaultSize! * 9,
+              ),
+              Column(
                 children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+                  Text(
+                    "Please enter the password reset code that we have sent to your email,",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Color(0xFF7C7B7B), fontSize: 16),
                   ),
-                  Spacer(flex: 8),
-                  const Text(
-                    "Reset Password",
-                    style: TextStyle(color: Colors.black, fontSize: 22),
+                  Text(
+                    '${resetPasswordModel.email}', // Example email
+                    style: TextStyle(
+                        color: Colors.blue, fontWeight: FontWeight.bold),
                   ),
-                  Spacer(flex: 10),
                 ],
-              ),
-              Spacer(
-                flex: 1,
-              ),
-              Text(
-                "Please enter the password reset code that we have sent to your email,",
-                textAlign: TextAlign.center,
-                style: TextStyle(color: Color(0xFF7C7B7B), fontSize: 16),
-              ),
-              Text(
-                '${resetPasswordModel.email}', // Example email
-                style:
-                    TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 20),
               Pinput(
@@ -84,20 +89,19 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                 validator: resetPasswordModel.validateRepeatPassword,
                 onSaved: resetPasswordModel.saveRepeatPassword,
               ),
-              Spacer(
-                flex: 3,
+              SizedBox(
+                height: SizeConfig.defaultSize! * 18,
               ),
-              ButtonWidget(
-                buttonName: 'Reset',
-                onPressedfn: () {
-                  if (_formKey.currentState!.validate()) {
-                    _formKey.currentState!.save();
-                  }
-                },
-              ),
-              Spacer(
-                flex: 1,
-              ),
+              Center(
+                child: ButtonWidget(
+                  buttonName: 'Reset',
+                  onPressedfn: () {
+                    if (_formKey.currentState!.validate()) {
+                      _formKey.currentState!.save();
+                    }
+                  },
+                ),
+              )
             ],
           ),
         ),
@@ -105,3 +109,4 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
     );
   }
 }
+

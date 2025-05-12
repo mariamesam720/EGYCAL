@@ -191,10 +191,10 @@ packages:
     dependency: "direct main"
     description:
       name: percent_indicator
-      sha256: "0c9824a4e10f19bb56bac9b0998765fdd665199a8b1eb5859854a26e8ef71fd7"
+      sha256: "157d29133bbc6ecb11f923d36e7960a96a3f28837549a20b65e5135729f0f9fd"
       url: "https://pub.dev"
     source: hosted
-    version: "3.4.0"
+    version: "4.2.5"
   pinput:
     dependency: "direct main"
     description:

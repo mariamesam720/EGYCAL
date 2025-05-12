@@ -1,7 +1,10 @@
-import 'package:egycal/features/Home/presentation/widgets/bottom_navbar.dart';
-import 'package:egycal/features/Home/presentation/widgets/calorie_intake.dart';
-import 'package:egycal/features/Home/presentation/widgets/cards.dart';
+import 'package:egycal/features/home/presentation/widgets/bottom_navbar.dart';
+import 'package:egycal/features/home/presentation/widgets/calorie_intake.dart';
+import 'package:egycal/features/home/presentation/widgets/cards.dart';
+import 'package:egycal/features/diary/presentation/diary_page.dart';
+import 'package:egycal/features/food_list/presentation/food_list_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -32,13 +35,15 @@ class Home extends StatelessWidget {
                 icon: Icons.fastfood,
                 label: 'food',
                 onTap: () {
-                  
+                  Get.to(FoodListPage());
                 },
               ),
               Cards(
                 icon: Icons.bar_chart,
                 label: 'Reports',
-                onTap: () {},
+                onTap: () {
+                  
+                },
               ),
               Cards(
                 icon: Icons.add_circle_outline,
@@ -48,7 +53,9 @@ class Home extends StatelessWidget {
               Cards(
                 icon: Icons.pie_chart_outline,
                 label: 'Diary',
-                onTap: () {},
+                onTap: () {
+                  Get.to(() => DiaryPage());
+                },
               ),
             ],
           ),

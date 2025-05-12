@@ -16,7 +16,7 @@ class _PageviewState extends State<Pageview> {
     return PageView(
       controller: _pagecontroller,
       children: [
-        SignUpPage2(controller: _pagecontroller,),
+        SignUpPage2(),
         Gender(controller: _pagecontroller,),
 
       ],
