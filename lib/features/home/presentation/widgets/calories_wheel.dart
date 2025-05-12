@@ -15,7 +15,7 @@ class _CaloriesWheelState extends State<CaloriesWheel> {
     animation: true,
     animationDuration: 1000,
     radius: 150,
-    lineWidth: 10,
+    lineWidth: 8,
     percent: 0.7,
     progressColor: Colors.white,
     backgroundColor: Color(0xFFF337277),

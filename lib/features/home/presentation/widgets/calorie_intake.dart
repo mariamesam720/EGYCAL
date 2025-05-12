@@ -1,5 +1,5 @@
 import 'package:egycal/core/utilis/size_config.dart';
-import 'package:egycal/features/CreateAvatar/presentation/widgets/circlea_vatar.dart';
+import 'package:egycal/features/create_avatar/presentation/widgets/circle_avatar.dart';
 import 'package:egycal/features/Home/presentation/widgets/CustomClipper.dart';
 import 'package:egycal/features/Home/presentation/widgets/calories_wheel.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +17,7 @@ class CalorieIntake extends StatelessWidget {
         height: SizeConfig.screenHeight!*0.4,
       
         decoration: BoxDecoration(
-          gradient: LinearGradient(colors:[Color(0xFFF152D2F),Color(0xFFF438F95)],
+          gradient: LinearGradient(colors:[Color(0xFF152D2F),Color(0xFF438F95)],
            begin: Alignment.bottomRight,
            end: Alignment.topRight,
           )
@@ -41,7 +41,7 @@ class CalorieIntake extends StatelessWidget {
                       SizedBox(
                         width: 30,
                         height: 30,
-                        child: avatarimg(image: "images/Ellipse 8.png",)),
+                        child: AvatarImage(image: "images/Ellipse 8.png",)),
                         SizedBox(width: 8,),
                       Text("Good morning , Ahmed", style: TextStyle(
                         color: Colors.white

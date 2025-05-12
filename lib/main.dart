@@ -2,7 +2,8 @@ import 'package:egycal/features/favorites/presentation/controller/favorites_cont
 import 'package:egycal/features/search/presentation/controller/search_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'features/splash/presentation/splashview.dart';
+import 'features/splash/presentation/splash_view.dart';
+
 
 void main() {
   Get.put(FavoritesController());
@@ -11,12 +12,13 @@ void main() {
 }
 
 class EgyCal extends StatelessWidget {
-  
+  const EgyCal({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: GetMaterialApp(
+        debugShowCheckedModeBanner: false,
         home: SplashView(),
       ),
     );

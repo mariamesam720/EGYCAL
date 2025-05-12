@@ -1,13 +1,9 @@
 import 'package:egycal/core/utilis/size_config.dart';
-import 'package:egycal/core/widgets/Navigation_buttons.dart';
-
+import 'package:egycal/core/widgets/navigation_buttons.dart';
 import 'package:egycal/core/widgets/custom_outlined_button.dart';
 import 'package:egycal/core/widgets/custom_text.dart';
 import 'package:egycal/features/goal/presentation/widgets/goal.dart';
-import 'package:egycal/features/height/presentation/widgets/height.dart';
-import 'package:egycal/features/signUp/presentation/screens/signUp_page2.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class Gender extends StatefulWidget {
   final PageController controller;

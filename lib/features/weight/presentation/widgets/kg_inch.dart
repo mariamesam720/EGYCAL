@@ -1,14 +1,14 @@
 import 'package:egycal/core/utilis/size_config.dart';
 import 'package:flutter/material.dart';
 
-class unit extends StatefulWidget {
-  const unit({super.key});
+class Unit extends StatefulWidget {
+  const Unit({super.key});
 
   @override
-  State<unit> createState() => _unitState();
+  State<Unit> createState() => _unitState();
 }
 
-class _unitState extends State<unit> {
+class _unitState extends State<Unit> {
   String dropdownvalue = 'Kg';
   var items = ['Kg', 'ib'];
   @override
@@ -23,15 +23,15 @@ class _unitState extends State<unit> {
             iconSize: 20,
             items: items.map((String items) {
               return DropdownMenuItem(
-                child: Text(items,
-                style: TextStyle(
-                  fontFamily: 'Inter',
-                  fontSize: 16,
-                  color: Color(0xFF337277),
-                  fontWeight: FontWeight.normal
-                ),
-                ),
                 value: items,
+                child: Text(items,
+                  style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontSize: 16,
+                      color: Color(0xFF337277),
+                      fontWeight: FontWeight.normal
+                  ),
+                ),
               );
             }).toList(),
             onChanged: (String? newValue) {

@@ -1,9 +1,9 @@
 import 'package:egycal/features/Home/presentation/widgets/home.dart';
 import 'package:flutter/material.dart';
 
-class avatarimg extends StatelessWidget {
+class AvatarImage extends StatelessWidget {
   final String? image;
-  const avatarimg({super.key , this.image});
+  const AvatarImage({super.key , this.image});
 
   @override
   Widget build(BuildContext context) {

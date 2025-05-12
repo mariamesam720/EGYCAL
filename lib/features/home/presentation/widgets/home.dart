@@ -1,6 +1,6 @@
-import 'package:egycal/core/widgets/bottom_navbar.dart';
-import 'package:egycal/features/Home/presentation/widgets/calorie_intake.dart';
-import 'package:egycal/features/Home/presentation/widgets/cards.dart';
+import 'package:egycal/features/home/presentation/widgets/bottom_navbar.dart';
+import 'package:egycal/features/home/presentation/widgets/calorie_intake.dart';
+import 'package:egycal/features/home/presentation/widgets/cards.dart';
 import 'package:egycal/features/diary/presentation/diary_page.dart';
 import 'package:egycal/features/food_list/presentation/food_list_page.dart';
 import 'package:flutter/material.dart';
@@ -41,7 +41,9 @@ class Home extends StatelessWidget {
               Cards(
                 icon: Icons.bar_chart,
                 label: 'Reports',
-                onTap: () {},
+                onTap: () {
+                  
+                },
               ),
               Cards(
                 icon: Icons.add_circle_outline,

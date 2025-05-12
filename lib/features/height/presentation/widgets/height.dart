@@ -1,10 +1,9 @@
 import 'package:egycal/core/utilis/size_config.dart';
-import 'package:egycal/core/widgets/Navigation_buttons.dart';
+import 'package:egycal/core/widgets/navigation_buttons.dart';
 import 'package:egycal/core/widgets/custom_text.dart';
 import 'package:egycal/features/height/presentation/widgets/value_picker.dart';
 import 'package:egycal/features/weight/presentation/widgets/weight.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class Height extends StatefulWidget {
   const Height({super.key});
