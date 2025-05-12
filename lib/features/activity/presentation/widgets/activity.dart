@@ -2,19 +2,18 @@ import 'package:egycal/core/utilis/size_config.dart';
 import 'package:egycal/core/widgets/navigation_buttons.dart';
 import 'package:egycal/core/widgets/custom_outlined_button.dart';
 import 'package:egycal/core/widgets/custom_text.dart';
-import 'package:egycal/features/Activity/presentation/widgets/activity.dart';
+import 'package:egycal/features/height/presentation/widgets/height.dart';
 import 'package:flutter/material.dart';
 
+class Activity extends StatefulWidget {
 
-class Goal extends StatefulWidget {
-
-  const Goal({super.key, });
+  const Activity({super.key, });
 
   @override
-  State<Goal> createState() => _GoalState();
+  State<Activity> createState() => _ActivityState();
 }
 
-class _GoalState extends State<Goal> {
+class _ActivityState extends State<Activity> {
   String selectedgoal = 'lose weight';
   @override
   Widget build(BuildContext context) {
@@ -27,18 +26,18 @@ class _GoalState extends State<Goal> {
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: CustomText(
-                  tittle: "What’s your goal?",
-                  description: "We will calculate daily calories \n      according to your goal"),
+                  tittle: "How active are you??",
+                  description: "A sedentary person burns fewer \n calories than an active person"),
             ),
             SizedBox(
-              height: SizeConfig.defaultSize!*18,
+              height: SizeConfig.defaultSize!*15,
             ),
             CustomOutlinedButton(
-              text: 'Lose Weight',
-              isSelected: selectedgoal == 'Lose Weight',
+              text: 'Sedentary',
+              isSelected: selectedgoal == 'Sedentary',
               onTap: () {
                 setState(() {
-                  selectedgoal = 'Lose Weight';
+                  selectedgoal = 'Sedentary';
                 });
               },
             ),
@@ -46,34 +45,46 @@ class _GoalState extends State<Goal> {
               height: 20,
             ),
             CustomOutlinedButton(
-              text: 'Keep weight',
+              text: 'Low Active',
               onTap: () {
                 setState(() {
-                  selectedgoal = 'Keep weight';
+                  selectedgoal = 'Low Active';
                 });
               },
-              isSelected: selectedgoal == 'Keep weight',
+              isSelected: selectedgoal == 'Low Active',
             ),
             SizedBox(
               height: 20,
             ),
             CustomOutlinedButton(
-              text: 'Gain Weight',
+              text: 'Active',
               onTap: () {
                 setState(() {
-                  selectedgoal = 'Gain Weight';
+                  selectedgoal = 'Active';
                 });
               },
-              isSelected: selectedgoal == 'Gain Weight',
+              isSelected: selectedgoal == 'Active',
             ),
             SizedBox(
-              height: SizeConfig.defaultSize!*12,
+              height: 20,
+            ),
+            CustomOutlinedButton(
+              text: 'Very Active',
+              onTap: () {
+                setState(() {
+                  selectedgoal = 'Very Active';
+                });
+              },
+              isSelected: selectedgoal == 'Very Active',
+            ),
+            SizedBox(
+              height: SizeConfig.defaultSize!*5,
             ),
             NavigationButtons(onBack: () {
               Navigator.pop(context);
             }, onNext: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Activity()));
+                  context, MaterialPageRoute(builder: (context) => Height()));
             })
           ],
         ),

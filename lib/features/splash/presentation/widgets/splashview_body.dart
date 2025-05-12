@@ -1,5 +1,5 @@
 import 'package:egycal/core/utilis/size_config.dart';
-import 'package:egycal/features/on_boarding/presentation/On_BoardingView.dart';
+import 'package:egycal/features/on_boarding/presentation/on_boarding_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,12 +20,11 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    return Container(
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Image.asset(
-        'images/WhatsApp Image 2025-02-10 at 08.31.36_853fae92 1.png',
-      ),
-    ]));
+    return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Image.asset(
+    'images/WhatsApp Image 2025-02-10 at 08.31.36_853fae92 1.png',
+          ),
+        ]);
   }
 
   void goToNextView() {

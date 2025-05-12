@@ -19,6 +19,5 @@ class MFeet extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

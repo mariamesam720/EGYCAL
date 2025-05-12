@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:developer';
 
 class SizeConfig {
   static double? screenWidth;
