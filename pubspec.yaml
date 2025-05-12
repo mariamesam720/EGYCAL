@@ -30,6 +30,8 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.8
   dots_indicator: ^4.0.1
+  percent_indicator: ^3.4.0
+  google_nav_bar: ^5.0.6
   flutter:
     sdk: flutter
   get: ^4.6.6
@@ -59,6 +61,16 @@ flutter:
     - images/Onboarding Illustrations (2).png
     - images/Onboarding Illustrations (3).png
     - images/Screenshot_2025-02-10_083845-removebg-preview 1.png
+    - images/Ellipse 8.png
+    - images/Ellipse 9.png
+    - images/Ellipse 10.png
+    - images/Ellipse 11.png
+    - images/Ellipse 12.png
+    - images/Ellipse 13.png
+    - images/Ellipse 14.png
+    - images/Ellipse 15.png
+    - images/Ellipse 16.png
+    - assets/fonts/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
   # For details regarding adding assets from package dependencies, see
@@ -68,17 +80,25 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/to/font-from-package
+
+  fonts:
+    
+    - family: MarkaziText
+      fonts:
+        - asset: assets/Fonts/Markazi_Text/static/MarkaziText-Bold.ttf
+        - asset: assets/Fonts/Markazi_Text/static/MarkaziText-Medium.ttf
+        - asset: assets/Fonts/Markazi_Text/static/MarkaziText-Regular.ttf
+        - asset: assets/Fonts/Markazi_Text/MarkaziText-VariableFont_wght.ttf
+    - family: Carrois Gothic
+      fonts:
+        - asset: assets/Fonts/Carrois_Gothic/CarroisGothic-Regular.ttf
+    - family: Carter One
+      fonts:
+        - asset: assets/Fonts/Carter_One/CarterOne-Regular.ttf
+    - family: Inter
+      fonts:
+        - asset: assets/Fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf 
+        - asset: assets/Fonts/Inter/Inter-VariableFont_opsz,wght.ttf    
+   
+  #For details regarding fonts from package dependencies,
+  #see https://flutter.dev/to/font-from-package
