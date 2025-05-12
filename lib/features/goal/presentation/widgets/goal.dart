@@ -3,7 +3,7 @@ import 'package:egycal/core/widgets/Navigation_buttons.dart';
 
 import 'package:egycal/core/widgets/custom_outlined_button.dart';
 import 'package:egycal/core/widgets/custom_text.dart';
-import 'package:egycal/features/Activity/presentation/widgets/Activity.dart';
+import 'package:egycal/features/activity/presentation/widgets/Activity.dart';
 import 'package:egycal/features/height/presentation/widgets/height.dart';
 import 'package:egycal/features/signUp/presentation/screens/signUp_page2.dart';
 import 'package:flutter/material.dart';
