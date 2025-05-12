@@ -3,19 +3,18 @@ import 'package:flutter/material.dart';
 
 class avatarimg extends StatelessWidget {
   final String? image;
-  const avatarimg({super.key , this.image});
+  final VoidCallback ontap;
+  const avatarimg({super.key, this.image, required this.ontap});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        Navigator.push(context,
-        MaterialPageRoute(builder: (context) => Home())
-        );
+      onTap: () {
+        ontap();
       },
       child: CircleAvatar(
         radius: 50,
-        backgroundImage:AssetImage(image!),
+        backgroundImage: AssetImage(image!),
       ),
     );
   }

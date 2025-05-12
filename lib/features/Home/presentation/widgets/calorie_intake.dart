@@ -41,7 +41,7 @@ class CalorieIntake extends StatelessWidget {
                       SizedBox(
                         width: 30,
                         height: 30,
-                        child: avatarimg(image: "images/Ellipse 8.png",)),
+                        child: avatarimg(image: "images/Ellipse 8.png", ontap: () {  },)),
                         SizedBox(width: 8,),
                       Text("Good morning , Ahmed", style: TextStyle(
                         color: Colors.white

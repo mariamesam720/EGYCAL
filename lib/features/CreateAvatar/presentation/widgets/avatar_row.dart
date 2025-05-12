@@ -1,4 +1,5 @@
 import 'package:egycal/features/CreateAvatar/presentation/widgets/circlea_vatar.dart';
+import 'package:egycal/features/Home/presentation/widgets/home.dart';
 import 'package:flutter/material.dart';
 
 class AvatarRow extends StatelessWidget {
@@ -11,39 +12,78 @@ class AvatarRow extends StatelessWidget {
       child: Column(
         children: [
           Row(
-            
             children: [
               Wrap(
                 spacing: 20,
                 runSpacing: 20,
                 alignment: WrapAlignment.center,
                 children: [
-                  avatarimg(image :'images/Ellipse 8.png'),
-                  avatarimg(image :'images/Ellipse 9.png'),
-                  avatarimg(image :'images/Ellipse 10.png'),
-                  
+                  avatarimg(image: 'images/Ellipse 8.png', ontap: () { Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Home())); },),
+                  avatarimg(image: 'images/Ellipse 9.png', ontap: () { Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Home())); },),
+                  avatarimg(image: 'images/Ellipse 10.png', ontap: () { Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Home())); },),
                 ],
               ),
             ],
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              avatarimg(image :'images/Ellipse 11.png'),
-              avatarimg(image :'images/Ellipse 12.png'),
-              avatarimg(image :'images/Ellipse 13.png'),
-              
+              avatarimg(
+                image: 'images/Ellipse 11.png',
+                ontap: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Home()));
+                },
+              ),
+              avatarimg(
+                image: 'images/Ellipse 12.png',
+                ontap: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Home()));
+                },
+              ),
+              avatarimg(
+                image: 'images/Ellipse 13.png',
+                ontap: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Home()));
+                },
+              ),
             ],
           ),
-            SizedBox(height: 25,),
+          SizedBox(
+            height: 25,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              avatarimg(image :'images/Ellipse 14.png'),
-              avatarimg(image :'images/Ellipse 15.png'),
-              avatarimg(image :'images/Ellipse 16.png'),
-              
+              avatarimg(
+                image: 'images/Ellipse 14.png',
+                ontap: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Home()));
+                },
+              ),
+              avatarimg(
+                image: 'images/Ellipse 15.png',
+                ontap: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Home()));
+                },
+              ),
+              avatarimg(
+                image: 'images/Ellipse 16.png',
+                ontap: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Home()));
+                },
+              ),
             ],
           ),
         ],
