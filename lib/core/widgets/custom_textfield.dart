@@ -6,13 +6,15 @@ class TextFieldWidget extends StatefulWidget {
   final bool obscureText;
   final String? Function(String?)? validator;
   final void Function(String?)? onSaved;
+  final void Function(String?)? onChanged;
+  final TextEditingController? textEditingController;
   const TextFieldWidget({
     required this.hintText,
     required this.obscureText,
     this.icon,
     this.validator,
     this.onSaved,
-    super.key,
+    super.key, this.textEditingController, this.onChanged,
   });
 
   @override
@@ -37,6 +39,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
       elevation:3,
       shadowColor: Colors.grey,
       child: TextFormField(
+        controller: TextEditingController(),
         obscureText: _isObscured,
         decoration: InputDecoration(
           suffixIcon: widget.obscureText
@@ -66,6 +69,7 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
           ),
         ),
         validator: widget.validator,
+        onChanged: widget.onSaved,
         onSaved: widget.onSaved,
       ),
     );

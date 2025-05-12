@@ -11,33 +11,40 @@ class NutritionTable extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-
         children: [
-          Text(
-            'Serving Size',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          Text(nutritionFacts.servingSize, style: TextStyle(fontSize: 16)),
+          Text('Nutrition Facts',
+              style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
           Divider(),
-          Text(
-            'Amount Per Serving',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Serving Size',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              Text(nutritionFacts.servingSize,
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+            ],
           ),
-          Text('Calories ${nutritionFacts.calories}', style: TextStyle(fontSize: 16)),
           Divider(),
           SizedBox(height: 10),
           buildNutritionRow('Total Fat', '${nutritionFacts.totalFat}g'),
-          _buildNutritionRow('  Saturated Fat', '${nutritionFacts.saturatedFat}g'),
+          _buildNutritionRow(
+              '  Saturated Fat', '${nutritionFacts.saturatedFat}g'),
           _buildNutritionRow('  Trans Fat', '${nutritionFacts.transFat}g'),
-          _buildNutritionRow('  Polyunsaturated Fat', '${nutritionFacts.polyunsaturatedFat}g'),
-          _buildNutritionRow('  Monounsaturated Fat', '${nutritionFacts.monounsaturatedFat}g'),
+          _buildNutritionRow(
+              '  Polyunsaturated Fat', '${nutritionFacts.polyunsaturatedFat}g'),
+          _buildNutritionRow(
+              '  Monounsaturated Fat', '${nutritionFacts.monounsaturatedFat}g'),
           Divider(),
           buildNutritionRow('Cholesterol', '${nutritionFacts.cholesterol}mg'),
           Divider(),
           buildNutritionRow('Sodium', '${nutritionFacts.sodium}mg'),
           Divider(),
-          buildNutritionRow('Total Carbohydrate', '${nutritionFacts.totalCarbohydrate}g'),
-          _buildNutritionRow('  Dietary Fiber', '${nutritionFacts.dietaryFiber}g'),
+          buildNutritionRow(
+              'Total Carbohydrate', '${nutritionFacts.totalCarbohydrate}g'),
+          _buildNutritionRow(
+              '  Dietary Fiber', '${nutritionFacts.dietaryFiber}g'),
           _buildNutritionRow('  Sugars', '${nutritionFacts.sugars}g'),
           Divider(),
           buildNutritionRow('Protein', '${nutritionFacts.protein}g'),
@@ -51,6 +58,7 @@ class NutritionTable extends StatelessWidget {
       ),
     );
   }
+
   Widget _buildNutritionRow(String label, String value) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
@@ -62,13 +70,14 @@ class NutritionTable extends StatelessWidget {
             style: TextStyle(fontSize: 16),
           ),
           Text(
-           value,
+            value,
             style: TextStyle(fontSize: 16),
           ),
         ],
       ),
     );
   }
+
   Widget buildNutritionRow(String label, String value) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
@@ -77,10 +86,10 @@ class NutritionTable extends StatelessWidget {
         children: [
           Text(
             label,
-            style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
           Text(
-           value,
+            value,
             style: TextStyle(fontSize: 16),
           ),
         ],

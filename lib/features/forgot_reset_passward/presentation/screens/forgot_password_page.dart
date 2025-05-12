@@ -38,9 +38,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           key: _formKey,
           child: ListView(
             dragStartBehavior: DragStartBehavior.start,
-            
             children: <Widget>[
-             SizedBox(height: SizeConfig.defaultSize! * 19),
+              SizedBox(height: SizeConfig.defaultSize! * 19),
               Text(
                 "We will send a password reset code to your email account.",
                 textAlign: TextAlign.center,
@@ -66,7 +65,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                   },
                 ),
               ),
-              
             ],
           ),
         ),

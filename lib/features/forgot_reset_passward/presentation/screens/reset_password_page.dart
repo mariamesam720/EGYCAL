@@ -32,6 +32,10 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
           onPressed: () => Get.back(),
         ),
       ),
+      // appBar: CustomAppbar(
+      //     text: 'Reset Password',
+      //     onIconpress: () => Get.back(),
+      //     icon: Icons.arrow_back_ios_new),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
         child: Form(
@@ -86,11 +90,14 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                 height: SizeConfig.defaultSize! * 18,
               ),
               Center(
-                child: ButtonWidget(buttonName: 'Reset', onPressedfn: () {
+                child: ButtonWidget(
+                  buttonName: 'Reset',
+                  onPressedfn: () {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
                     }
-                  },),
+                  },
+                ),
               )
             ],
           ),

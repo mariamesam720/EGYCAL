@@ -3,9 +3,9 @@ class FoodDetailsModel {
   final String arname;
   final String imagePath;
   final int calories;
-  final double proteins;
-  final double fats;
-  final double carbs;
+  final int proteins;
+  final int fats;
+  final int carbs;
   final NutritionModel nutritionFacts;
 
   FoodDetailsModel({

@@ -1,24 +1,23 @@
+import 'package:egycal/core/utilis/size_config.dart';
 import 'package:egycal/core/widgets/custom_elev_button.dart';
 import 'package:egycal/core/widgets/custom_textfield.dart';
-import 'package:egycal/features/diary/presentation/diary_page.dart';
-import 'package:egycal/features/signUp/presentation/models/signUp_model.dart';
+import 'package:egycal/features/change_password/presentation/models/change_password_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
-class SignUpPage2 extends StatefulWidget {
-  const SignUpPage2({super.key});
+class ChangePasswordPage extends StatefulWidget {
+  const ChangePasswordPage({
+    super.key,
+  });
 
   @override
-  State<SignUpPage2> createState() => _SignUpPage2State();
+  State<ChangePasswordPage> createState() => _ChangePasswordPageState();
 }
 
-class _SignUpPage2State extends State<SignUpPage2> {
+class _ChangePasswordPageState extends State<ChangePasswordPage> {
   final _formKey = GlobalKey<FormState>();
-  final SignUpModel signUpModel = SignUpModel();
-  final passwordController = TextEditingController();
-  final repeatPasswordController = TextEditingController();
-  final emailController = TextEditingController();
+  final ChangePasswordModel changePasswordModel = ChangePasswordModel();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +26,7 @@ class _SignUpPage2State extends State<SignUpPage2> {
         backgroundColor: Colors.white,
         centerTitle: true,
         toolbarHeight: 80,
-        title: const Text('Create an account'),
+        title: const Text('Change password'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new),
           onPressed: () => Get.back(),
@@ -39,48 +38,47 @@ class _SignUpPage2State extends State<SignUpPage2> {
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
           child: ListView(
             children: [
+              Center(child: Text('Please enter your old and new \n       passwords to continue',style: TextStyle(color: Colors.grey[600],),)),
               const SizedBox(height: 150),
               TextFieldWidget(
-                textEditingController: emailController,
-                hintText: 'Email',
+                hintText: 'Old password',
                 icon: Icons.email,
                 obscureText: false,
-                validator: signUpModel.validateEmail,
-                onSaved: signUpModel.saveEmail,
+                validator: changePasswordModel.validateOldPassword,
+                onSaved: changePasswordModel.saveOldPassword,
+                // onChanged: (value) => changePasswordModel.oldPassword = value,
               ),
               const SizedBox(height: 16),
               TextFieldWidget(
-                textEditingController: passwordController,
-                hintText: "Password",
+                hintText: "New password",
                 icon: Icons.lock_outline,
                 obscureText: true,
-                validator: signUpModel.validatePassword,
-                onSaved: signUpModel.savePassword,
+                validator: changePasswordModel.validateNewPassword,
+                onSaved: changePasswordModel.saveNewPassword,
               ),
               const SizedBox(height: 16),
               TextFieldWidget(
-                textEditingController: repeatPasswordController,
-                hintText: "Repeat password",
+                hintText: "Repeat new password",
                 icon: Icons.lock_outline,
                 obscureText: true,
-                validator: signUpModel.validateRepeatPassword,
-                onSaved: signUpModel.saveRepeatPassword,
+                validator: changePasswordModel.validateRepeatPassword,
+                onSaved: changePasswordModel.saveRepeatPassword,
               ),
-              const SizedBox(height: 100),
+              SizedBox(height: SizeConfig.defaultSize!*13),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: ButtonWidget(
-                  buttonName: 'Sign up',
+                  buttonName: 'Change',
                   onPressedfn: () {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save(); // Save both fields first
-                      if (signUpModel.password != signUpModel.repeatPassword) {
+                      if (changePasswordModel.newPassword != changePasswordModel.repeatNewPassword) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text('Passwords do not match')),
                         );
                         return;
                       }
-                      Get.to(DiaryPage());
+
                     }
                   },
                 ),

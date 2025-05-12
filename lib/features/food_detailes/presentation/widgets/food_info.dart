@@ -45,11 +45,11 @@ Widget FoodInfo(FoodDetailsModel food) {
         right: 5,
         child: Obx(() => IconButton(
               icon: Icon(
-                size: 27,
+                size: 30,
                 favController.isFavorite(food)
                     ? Icons.favorite
-                    : Icons.favorite_border,
-                color: Colors.red,
+                    : Icons.favorite_border
+                // color: Colors.black,
               ),
               onPressed: () {
                 favController.toggleFavorite(food);

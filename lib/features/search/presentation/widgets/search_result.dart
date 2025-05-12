@@ -30,10 +30,8 @@ class SearchResult extends StatelessWidget {
             itemBuilder: (context, index) {
               final food = results[index];
               return GestureDetector(
-                onTap: () => Get.to(() => FoodDetailsPage(
-                      food: food,
-                    )),
                 child: FoodCard(food: food),
+                onTap: () => Get.to(FoodDetailsPage(allFoods: results, selectedFood: food,)),
               );
             },
           ),
