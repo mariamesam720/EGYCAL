@@ -1,42 +1,48 @@
 import 'package:egycal/core/widgets/custom_elev_button.dart';
 import 'package:egycal/core/widgets/custom_textfield.dart';
-import 'package:egycal/features/Gender/presentation/widgets/gender.dart';
+import 'package:egycal/features/diary/presentation/diary_page.dart';
+import 'package:egycal/features/goal/presentation/widgets/goal.dart';
 import 'package:egycal/features/signUp/presentation/models/signUp_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
-class SignUpPage2 extends StatelessWidget {
-  SignUpPage2({super.key, required controller});
-    final PageController _controller = PageController();
+class SignUpPage2 extends StatefulWidget {
+  const SignUpPage2({super.key});
+
+  @override
+  State<SignUpPage2> createState() => _SignUpPage2State();
+}
+
+class _SignUpPage2State extends State<SignUpPage2> {
   final _formKey = GlobalKey<FormState>();
   final SignUpModel signUpModel = SignUpModel();
+  final passwordController = TextEditingController();
+  final repeatPasswordController = TextEditingController();
+  final emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        toolbarHeight: 80,
+        title: const Text('Create an account'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios_new),
+          onPressed: () => Get.back(),
+        ),
+      ),
       body: Form(
         key: _formKey,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
           child: ListView(
             children: [
-              Row(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  Spacer(flex: 8),
-                  const Text(
-                    "Create an account",
-                    style: TextStyle(color: Colors.black, fontSize: 22),
-                  ),
-                  Spacer(flex: 10),
-                ],
-              ),
-              SizedBox(height: 150,),
+              const SizedBox(height: 150),
               TextFieldWidget(
+                textEditingController: emailController,
                 hintText: 'Email',
                 icon: Icons.email,
                 obscureText: false,
@@ -45,6 +51,7 @@ class SignUpPage2 extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               TextFieldWidget(
+                textEditingController: passwordController,
                 hintText: "Password",
                 icon: Icons.lock_outline,
                 obscureText: true,
@@ -53,30 +60,32 @@ class SignUpPage2 extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               TextFieldWidget(
+                textEditingController: repeatPasswordController,
                 hintText: "Repeat password",
                 icon: Icons.lock_outline,
                 obscureText: true,
                 validator: signUpModel.validateRepeatPassword,
                 onSaved: signUpModel.saveRepeatPassword,
               ),
-
-              SizedBox(height: 250,),
+              const SizedBox(height: 100),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: ButtonWidget(
                   buttonName: 'Sign up',
                   onPressedfn: () {
-                     if (_formKey.currentState != null && _formKey.currentState!.validate()) {
-                        _formKey.currentState!.save();
-
+                    if (_formKey.currentState!.validate()) {
+                      _formKey.currentState!.save(); // Save both fields first
+                      if (signUpModel.password != signUpModel.repeatPassword) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('Passwords do not match')),
+                        );
+                        return;
                       }
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Gender(controller: _controller,)));
-
-
+                      Get.to(Goal());
+                    }
                   },
                 ),
               ),
-              
             ],
           ),
         ),
