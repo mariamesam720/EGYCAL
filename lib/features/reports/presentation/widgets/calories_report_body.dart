@@ -18,7 +18,7 @@ class CaloriesReportBody extends StatelessWidget{
               SizedBox(
                   width: 50,
                   height: 50,
-                  child: AvatarImage(image: "images/Ellipse 8.png",
+                  child: AvatarImage(image: "images/Ellipse 8.png", ontap: () {  },
                   )
               ),
               Padding(

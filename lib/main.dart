@@ -12,6 +12,7 @@ import 'features/splash/presentation/splash_view.dart';
 
 
 void main() {
+   Get.put(FavoritesController()); 
   runApp(
     MultiProvider(
         providers: [ChangeNotifierProvider(create: (_) => GoalProvider()),

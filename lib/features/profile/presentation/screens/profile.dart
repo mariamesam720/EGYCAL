@@ -1,5 +1,6 @@
 import 'package:egycal/core/widgets/custom_appbar.dart';
-import 'package:egycal/features/create_avatar/presentation/widgets/circlea_avatar.dart';
+import 'package:egycal/features/create_avatar/presentation/widgets/circle_avatar.dart';
+import 'package:egycal/features/diary/presentation/widgets/avatar.dart';
 import 'package:egycal/features/profile/presentation/screens/about_app.dart';
 import 'package:egycal/features/profile/presentation/screens/contact_us.dart';
 import 'package:egycal/features/profile/presentation/widgets/button.dart';
@@ -24,7 +25,7 @@ class Profile extends StatelessWidget {
         children: [
           Center(
               child: avatarimg(
-            image: 'images/Ellipse 11.png', ontap: () {  },
+            image: 'images/Ellipse 11.png',
           )),
           Text(
             'Ahmed',

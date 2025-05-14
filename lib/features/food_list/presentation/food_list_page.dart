@@ -1,4 +1,4 @@
-import 'package:egycal/core/widgets/bottom_navbar.dart';
+import 'package:egycal/core/widgets/bottom_nav_bar.dart';
 import 'package:egycal/features/favorites/presentation/controller/favorites_controller.dart';
 import 'package:egycal/features/food_detailes/presentation/food_detailes_page.dart';
 import 'package:egycal/features/food_detailes/presentation/models/food_details_mode.dart';

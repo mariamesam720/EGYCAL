@@ -1,6 +1,8 @@
 import 'package:egycal/core/widgets/custom_appbar.dart';
 import 'package:egycal/core/widgets/custom_elev_button.dart';
-import 'package:egycal/features/create_avatar/presentation/widgets/circlea_avatar.dart';
+import 'package:egycal/features/change_password/presentation/change_password_page.dart';
+import 'package:egycal/features/create_avatar/presentation/widgets/circle_avatar.dart';
+import 'package:egycal/features/diary/presentation/widgets/avatar.dart';
 import 'package:egycal/features/profile/presentation/screens/account_deletion.dart';
 import 'package:egycal/features/profile/presentation/widgets/icon.dart';
 import 'package:egycal/features/profile/presentation/widgets/red_icon.dart';
@@ -24,7 +26,7 @@ class AccountPage extends StatelessWidget {
           children: [
             Center(
                 child: avatarimg(
-              image: 'images/Ellipse 11.png', ontap: () {  },
+              image: 'images/Ellipse 11.png',
             )),
             SizedBox(height: 10,),
             Text(
@@ -66,7 +68,8 @@ class AccountPage extends StatelessWidget {
                 icon: Icons.lock_reset_rounded,
                 
                 onpress: () {
-                  
+                  Navigator.push(context,
+            MaterialPageRoute(builder: (context) => ChangePasswordPage()));
                 }, tittle: 'change password', ),
             RedIcon(icon1: Icons.logout_outlined, name: 'Logout', onpressed: () {  },),
             RedIcon(icon1: Icons.delete_outlined, name: 'Delete Account', 

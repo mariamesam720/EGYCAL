@@ -1,10 +1,10 @@
 import 'package:egycal/features/home/presentation/widgets/home.dart';
 import 'package:flutter/material.dart';
 
-class avatarimg extends StatelessWidget {
+class AvatarImage extends StatelessWidget {
   final String? image;
   final VoidCallback ontap;
-  const avatarimg({super.key, this.image, required this.ontap});
+  const AvatarImage({super.key, this.image, required this.ontap});
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,4 @@
-import 'package:egycal/core/widgets/bottom_navbar.dart';
+import 'package:egycal/core/widgets/bottom_nav_bar.dart';
 import 'package:egycal/features/diary/presentation/models/meal_model.dart';
 import 'package:egycal/features/diary/presentation/widgets/avatar.dart';
 import 'package:egycal/features/diary/presentation/widgets/meal_card.dart';

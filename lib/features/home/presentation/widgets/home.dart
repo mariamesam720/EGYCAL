@@ -1,5 +1,5 @@
+import 'package:egycal/core/widgets/bottom_nav_bar.dart';
 import 'package:egycal/features/add_food_user/presentation/widgets/add_food.dart';
-import 'package:egycal/features/home/presentation/widgets/bottom_navbar.dart';
 import 'package:egycal/features/home/presentation/widgets/calorie_intake.dart';
 import 'package:egycal/features/home/presentation/widgets/cards.dart';
 import 'package:egycal/features/diary/presentation/diary_page.dart';
@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
             icon: Icons.fastfood,
             label: 'food',
             onTap: () {
-              Get.to(FoodListPage());
+              Navigator.push(context, MaterialPageRoute(builder: (context) =>FoodListPage()));
             },
           ),
           Cards(
