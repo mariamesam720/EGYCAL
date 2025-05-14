@@ -1,5 +1,5 @@
 import 'package:egycal/core/utilis/size_config.dart';
-import 'package:egycal/core/widgets/Navigation_buttons.dart';
+import 'package:egycal/core/widgets/navigation_buttons.dart';
 import 'package:egycal/core/widgets/custom_text.dart';
 import 'package:egycal/features/create_avatar/presentation/avatar.dart';
 import 'package:egycal/features/weight/presentation/widgets/weight_picker.dart';

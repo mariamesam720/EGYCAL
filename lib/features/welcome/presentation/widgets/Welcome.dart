@@ -1,6 +1,6 @@
 
 import 'package:egycal/features/login/presentation/login_page.dart';
-import 'package:egycal/features/sign_up/presentation/screens/signUp_page1.dart';
+import 'package:egycal/features/sign_up/presentation/screens/sign_up_page1.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -42,20 +42,20 @@ class Welcome extends StatelessWidget {
           
              ElevatedButton(onPressed: (){
               Get.to(() => LoginPage());
-             }, child:
-            Text('Start',
-            style: TextStyle(
-              color: Colors.white,
-              fontFamily: 'lnter',
-              fontSize: 16,
-            ),
-            ),
+             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Color(0xFF337277),
             shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             fixedSize: Size(312, 52),
             padding: EdgeInsets.symmetric(horizontal: 24,vertical: 12)
 
+            ), 
+            child: Text('Start',
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'lnter',
+              fontSize: 16,
+            ),
             )),
             
               

@@ -1,4 +1,3 @@
-import 'package:egycal/core/utilis/size_config.dart';
 import 'package:egycal/features/weight/presentation/widgets/kg_inch.dart';
 import 'package:flutter/material.dart';
 
@@ -29,7 +28,7 @@ class WeightPicker extends StatelessWidget {
           
         ),
         SizedBox(width: 20,),
-        Expanded(child: unit()),
+        Expanded(child: Unit()),
       ],
     );
   }
