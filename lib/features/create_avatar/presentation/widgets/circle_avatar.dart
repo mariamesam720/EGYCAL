@@ -1,21 +1,20 @@
-import 'package:egycal/features/Home/presentation/widgets/home.dart';
+import 'package:egycal/features/home/presentation/widgets/home.dart';
 import 'package:flutter/material.dart';
 
 class AvatarImage extends StatelessWidget {
   final String? image;
-  const AvatarImage({super.key , this.image});
+  final VoidCallback ontap;
+  const AvatarImage({super.key, this.image, required this.ontap});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        Navigator.push(context,
-        MaterialPageRoute(builder: (context) => Home())
-        );
+      onTap: () {
+        ontap();
       },
       child: CircleAvatar(
         radius: 50,
-        backgroundImage:AssetImage(image!),
+        backgroundImage: AssetImage(image!),
       ),
     );
   }

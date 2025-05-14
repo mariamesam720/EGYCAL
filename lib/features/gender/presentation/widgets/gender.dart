@@ -2,8 +2,10 @@ import 'package:egycal/core/utilis/size_config.dart';
 import 'package:egycal/core/widgets/navigation_buttons.dart';
 import 'package:egycal/core/widgets/custom_outlined_button.dart';
 import 'package:egycal/core/widgets/custom_text.dart';
+import 'package:egycal/features/gender/provider/gender_provider.dart';
 import 'package:egycal/features/goal/presentation/widgets/goal.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Gender extends StatefulWidget {
   final PageController controller;
@@ -15,9 +17,9 @@ class Gender extends StatefulWidget {
 }
 
 class _GenderState extends State<Gender> {
-  String selectedgender = 'Male';
   @override
   Widget build(BuildContext context) {
+    final genderProvider = Provider.of<GenderProvider>(context);
     return Scaffold(
       body: Center(
         child: Column(
@@ -37,12 +39,8 @@ class _GenderState extends State<Gender> {
               padding: const EdgeInsets.only(top: 38),
               child: CustomOutlinedButton(
                 text: 'Male',
-                isSelected: selectedgender == 'Male',
-                onTap: () {
-                  setState(() {
-                    selectedgender = 'Male';
-                  });
-                },
+                isSelected: genderProvider.isSelected(GenderProvider.maleGender),
+                onTap: ()=>genderProvider.setGender(GenderProvider.maleGender)
               ),
             ),
             SizedBox(
@@ -50,15 +48,11 @@ class _GenderState extends State<Gender> {
             ),
             CustomOutlinedButton(
               text: 'Female',
-              onTap: () {
-                setState(() {
-                  selectedgender = 'Female';
-                });
-              },
-              isSelected: selectedgender == 'Female',
+              onTap: () =>genderProvider.setGender(GenderProvider.femaleGender),
+              isSelected: genderProvider.isSelected(GenderProvider.femaleGender)
             ),
             SizedBox(
-              height: SizeConfig.defaultSize!*20,
+              height: SizeConfig.defaultSize! * 20,
             ),
             NavigationButtons(onBack: () {
               Navigator.pop(context);

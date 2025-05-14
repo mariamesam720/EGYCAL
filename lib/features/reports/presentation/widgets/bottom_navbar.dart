@@ -1,5 +1,7 @@
+import 'package:egycal/features/profile/presentation/screens/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({
     super.key,
@@ -35,7 +37,10 @@ class CustomBottomNavBar extends StatelessWidget {
             GButton(
               icon: Icons.person_2_outlined,
               text: 'Profile',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Profile()));
+              },
             ),
           ]),
     );

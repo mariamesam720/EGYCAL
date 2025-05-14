@@ -1,13 +1,14 @@
 import 'package:egycal/core/utilis/size_config.dart';
-import 'package:egycal/core/widgets/navigation_buttons.dart';
 import 'package:egycal/core/widgets/custom_outlined_button.dart';
 import 'package:egycal/core/widgets/custom_text.dart';
+import 'package:egycal/core/widgets/navigation_buttons.dart';
 import 'package:egycal/features/height/presentation/widgets/height.dart';
 import 'package:flutter/material.dart';
 
 class Activity extends StatefulWidget {
-
-  const Activity({super.key, });
+  const Activity({
+    super.key,
+  });
 
   @override
   State<Activity> createState() => _ActivityState();
@@ -27,10 +28,11 @@ class _ActivityState extends State<Activity> {
               padding: const EdgeInsets.only(top: 20),
               child: CustomText(
                   tittle: "How active are you??",
-                  description: "A sedentary person burns fewer \n calories than an active person"),
+                  description:
+                      "A sedentary person burns fewer \n calories than an active person"),
             ),
             SizedBox(
-              height: SizeConfig.defaultSize!*15,
+              height: SizeConfig.defaultSize! * 15,
             ),
             CustomOutlinedButton(
               text: 'Sedentary',
@@ -78,7 +80,7 @@ class _ActivityState extends State<Activity> {
               isSelected: selectedgoal == 'Very Active',
             ),
             SizedBox(
-              height: SizeConfig.defaultSize!*5,
+              height: SizeConfig.defaultSize! * 5,
             ),
             NavigationButtons(onBack: () {
               Navigator.pop(context);
