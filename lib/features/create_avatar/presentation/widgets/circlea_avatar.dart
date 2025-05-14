@@ -1,4 +1,4 @@
-import 'package:egycal/features/Home/presentation/widgets/home.dart';
+import 'package:egycal/features/home/presentation/widgets/home.dart';
 import 'package:flutter/material.dart';
 
 class avatarimg extends StatelessWidget {

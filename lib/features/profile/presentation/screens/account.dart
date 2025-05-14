@@ -1,6 +1,6 @@
 import 'package:egycal/core/widgets/custom_appbar.dart';
 import 'package:egycal/core/widgets/custom_elev_button.dart';
-import 'package:egycal/features/CreateAvatar/presentation/widgets/circlea_vatar.dart';
+import 'package:egycal/features/create_avatar/presentation/widgets/circlea_avatar.dart';
 import 'package:egycal/features/profile/presentation/screens/account_deletion.dart';
 import 'package:egycal/features/profile/presentation/widgets/icon.dart';
 import 'package:egycal/features/profile/presentation/widgets/red_icon.dart';

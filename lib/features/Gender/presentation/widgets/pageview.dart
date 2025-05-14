@@ -1,4 +1,4 @@
-import 'package:egycal/features/Gender/presentation/widgets/gender.dart';
+import 'package:egycal/features/gender/presentation/widgets/gender.dart';
 import 'package:egycal/features/signUp/presentation/screens/signUp_page2.dart';
 import 'package:flutter/material.dart';
 

@@ -1,8 +1,8 @@
 import 'package:egycal/core/widgets/custom_elev_button.dart';
 import 'package:egycal/core/widgets/custom_textfield.dart';
-import 'package:egycal/features/signUp/presentation/models/signUp_model.dart';
-import 'package:egycal/features/signUp/presentation/screens/signUp_page2.dart';
-import 'package:egycal/features/signUp/presentation/widgets/custom_dropdown.dart';
+import 'package:egycal/features/sign_up/presentation/models/signUp_model.dart';
+import 'package:egycal/features/sign_up/presentation/screens/signUp_page2.dart';
+import 'package:egycal/features/sign_up/presentation/widgets/custom_dropdown.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 

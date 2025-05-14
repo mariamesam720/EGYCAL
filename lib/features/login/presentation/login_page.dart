@@ -2,7 +2,7 @@ import 'package:egycal/core/widgets/custom_elev_button.dart';
 import 'package:egycal/core/widgets/custom_textfield.dart';
 import 'package:egycal/features/forgot_reset_passward/presentation/screens/forgot_password_page.dart';
 import 'package:egycal/features/login/presentation/models/login_model.dart';
-import 'package:egycal/features/signUp/presentation/screens/signUp_page1.dart';
+import 'package:egycal/features/sign_up/presentation/screens/signUp_page1.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';

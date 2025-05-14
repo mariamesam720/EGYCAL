@@ -1,6 +1,6 @@
-import 'package:egycal/features/Home/presentation/widgets/bottom_navbar.dart';
-import 'package:egycal/features/Home/presentation/widgets/calorie_intake.dart';
-import 'package:egycal/features/Home/presentation/widgets/cards.dart';
+import 'package:egycal/features/home/presentation/widgets/bottom_navbar.dart';
+import 'package:egycal/features/home/presentation/widgets/calorie_intake.dart';
+import 'package:egycal/features/home/presentation/widgets/cards.dart';
 import 'package:egycal/features/add_food_user/presentation/widgets/add_food.dart';
 import 'package:flutter/material.dart';
 

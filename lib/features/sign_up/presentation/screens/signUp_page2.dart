@@ -1,7 +1,7 @@
 import 'package:egycal/core/widgets/custom_elev_button.dart';
 import 'package:egycal/core/widgets/custom_textfield.dart';
-import 'package:egycal/features/Gender/presentation/widgets/gender.dart';
-import 'package:egycal/features/signUp/presentation/models/signUp_model.dart';
+import 'package:egycal/features/gender/presentation/widgets/gender.dart';
+import 'package:egycal/features/sign_up/presentation/models/signUp_model.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage2 extends StatelessWidget {

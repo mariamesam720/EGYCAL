@@ -1,5 +1,5 @@
-import 'package:egycal/features/CreateAvatar/presentation/widgets/circlea_vatar.dart';
-import 'package:egycal/features/Home/presentation/widgets/home.dart';
+import 'package:egycal/features/create_avatar/presentation/widgets/circlea_avatar.dart';
+import 'package:egycal/features/home/presentation/widgets/home.dart';
 import 'package:flutter/material.dart';
 
 class AvatarRow extends StatelessWidget {

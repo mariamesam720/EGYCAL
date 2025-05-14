@@ -3,10 +3,10 @@ import 'package:egycal/core/widgets/Navigation_buttons.dart';
 
 import 'package:egycal/core/widgets/custom_outlined_button.dart';
 import 'package:egycal/core/widgets/custom_text.dart';
-import 'package:egycal/features/Gender/provider/gender_provider.dart';
+import 'package:egycal/features/gender/provider/gender_provider.dart';
 import 'package:egycal/features/goal/presentation/widgets/goal.dart';
 import 'package:egycal/features/height/presentation/widgets/height.dart';
-import 'package:egycal/features/signUp/presentation/screens/signUp_page2.dart';
+import 'package:egycal/features/sign_up/presentation/screens/signUp_page2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';

@@ -1,4 +1,5 @@
 import 'package:egycal/core/widgets/custom_appbar.dart';
+import 'package:egycal/features/add_food_user/presentation/widgets/food_prefrence.dart';
 import 'package:egycal/features/add_food_user/provider/food_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -63,7 +64,6 @@ class AddFood extends StatelessWidget {
             ),
             const SizedBox(height: 20),
 
-            /// 👇 Optional nutrients toggle
             ExpansionTile(
               title: Text("Optional Nutrients"),
               children: nutrientLabels.entries
@@ -73,8 +73,9 @@ class AddFood extends StatelessWidget {
                   .toList(),
             ),
 
-            const SizedBox(height: 20),
+            const SizedBox(height: 5),
             // Allergens & Dietary Info Section
+            AddFoodPreferencesScreen(),
             const SizedBox(height: 20),
 
             SizedBox(

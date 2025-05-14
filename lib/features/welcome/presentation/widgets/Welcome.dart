@@ -1,6 +1,6 @@
 
 import 'package:egycal/features/login/presentation/login_page.dart';
-import 'package:egycal/features/signUp/presentation/screens/signUp_page1.dart';
+import 'package:egycal/features/sign_up/presentation/screens/signUp_page1.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

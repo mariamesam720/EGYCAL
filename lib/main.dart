@@ -1,4 +1,5 @@
-import 'package:egycal/features/Gender/provider/gender_provider.dart';
+import 'package:egycal/features/gender/provider/gender_provider.dart';
+import 'package:egycal/features/add_food_user/provider/food_contain_provider.dart';
 import 'package:egycal/features/add_food_user/provider/food_provider.dart';
 import 'package:egycal/features/goal/provider/goal_provider.dart';
 import 'package:egycal/features/profile/presentation/provider/acc_delete_provider.dart';
@@ -15,6 +16,7 @@ void main() {
         ChangeNotifierProvider(create: (_)=>GenderProvider()),
         ChangeNotifierProvider(create: (_)=>AccDeleteProvider()),
         ChangeNotifierProvider(create: (_)=>FoodProvider()),
+        ChangeNotifierProvider(create: (_)=>FoodContainProvider()),
         ],
         child: EgyCal()),
   );

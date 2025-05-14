@@ -1,7 +1,7 @@
 import 'package:egycal/core/utilis/size_config.dart';
-import 'package:egycal/features/CreateAvatar/presentation/widgets/circlea_vatar.dart';
-import 'package:egycal/features/Home/presentation/widgets/CustomClipper.dart';
-import 'package:egycal/features/Home/presentation/widgets/calories_wheel.dart';
+import 'package:egycal/features/home/presentation/widgets/CustomClipper.dart';
+import 'package:egycal/features/home/presentation/widgets/calories_wheel.dart';
+import 'package:egycal/features/create_avatar/presentation/widgets/circlea_avatar.dart';
 import 'package:flutter/material.dart';
 
 class CalorieIntake extends StatelessWidget {
