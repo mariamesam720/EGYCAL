@@ -123,7 +123,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return SignUpPage2();
+                            return SignUpPage2(signUpModel: signUpModel);
                           },
                         ),
                       ); // Go back to the login page

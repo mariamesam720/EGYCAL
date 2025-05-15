@@ -2,13 +2,17 @@ import 'package:egycal/core/utilis/size_config.dart';
 import 'package:egycal/core/widgets/custom_outlined_button.dart';
 import 'package:egycal/core/widgets/custom_text.dart';
 import 'package:egycal/core/widgets/navigation_buttons.dart';
+import 'package:egycal/features/goal/models/additional_user_information.dart';
 import 'package:egycal/features/height/presentation/widgets/height.dart';
 import 'package:flutter/material.dart';
 
 class Activity extends StatefulWidget {
   const Activity({
     super.key,
+    required this.additionalUserInformationModel,
   });
+
+  final AdditionalUserInformation additionalUserInformationModel;
 
   @override
   State<Activity> createState() => _ActivityState();
@@ -40,6 +44,7 @@ class _ActivityState extends State<Activity> {
               onTap: () {
                 setState(() {
                   selectedgoal = 'Sedentary';
+                  widget.additionalUserInformationModel.saveActivity('Sedentary');
                 });
               },
             ),
@@ -51,6 +56,7 @@ class _ActivityState extends State<Activity> {
               onTap: () {
                 setState(() {
                   selectedgoal = 'Low Active';
+                  widget.additionalUserInformationModel.saveActivity('Low Active');
                 });
               },
               isSelected: selectedgoal == 'Low Active',
@@ -63,6 +69,7 @@ class _ActivityState extends State<Activity> {
               onTap: () {
                 setState(() {
                   selectedgoal = 'Active';
+                  widget.additionalUserInformationModel.saveActivity('Active');
                 });
               },
               isSelected: selectedgoal == 'Active',
@@ -75,18 +82,21 @@ class _ActivityState extends State<Activity> {
               onTap: () {
                 setState(() {
                   selectedgoal = 'Very Active';
+                  widget.additionalUserInformationModel.saveActivity('Very Active');
                 });
               },
               isSelected: selectedgoal == 'Very Active',
             ),
+
             SizedBox(
               height: SizeConfig.defaultSize! * 5,
             ),
+
             NavigationButtons(onBack: () {
               Navigator.pop(context);
             }, onNext: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Height()));
+                  context, MaterialPageRoute(builder: (context) => Height(additionalUserInformationModel: widget.additionalUserInformationModel,)));
             })
           ],
         ),

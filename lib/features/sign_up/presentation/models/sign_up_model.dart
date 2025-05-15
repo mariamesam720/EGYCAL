@@ -38,6 +38,7 @@ class SignUpModel {
     if (value == null || value.isEmpty) return 'Please select a year';
     return null;
   }
+
   String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter your email address';
@@ -45,7 +46,9 @@ class SignUpModel {
     if (!value.contains('@')) return 'Please enter a valid email address';
     return null;
   }
-   void saveEmail(String? value) => email = value;
+
+  void saveEmail(String? value) => email = value;
+
   String? validatePassword(String? value) {
     if (value == null || value.isEmpty) return 'Please enter your password';
     if (value.length < 6) return 'Password must be at least 6 characters long';
@@ -61,9 +64,8 @@ class SignUpModel {
   }
 
   void saveRepeatPassword(String? value) => repeatPassword = value;
- 
-  
-  
+
   void saveFirstName(String? value) => firstName = value;
+
   void saveSecondName(String? value) => secondName = value;
 }

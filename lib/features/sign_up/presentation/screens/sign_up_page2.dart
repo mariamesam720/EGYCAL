@@ -1,16 +1,17 @@
-import 'package:egycal/core/widgets/custom_elev_button.dart';
-import 'package:egycal/core/widgets/custom_textfield.dart';
-import 'package:egycal/features/gender/presentation/widgets/gender.dart';
-import 'package:egycal/features/sign_up/presentation/models/sign_up_model.dart';
-import 'package:egycal/features/sign_up/presentation/models/sign_up_model.dart';
-import 'package:egycal/features/diary/presentation/diary_page.dart';
-import 'package:egycal/features/goal/presentation/widgets/goal.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
+import 'package:egycal/core/widgets/custom_elev_button.dart';
+import 'package:egycal/core/widgets/custom_textfield.dart';
+import 'package:egycal/features/sign_up/presentation/models/sign_up_model.dart';
+import 'package:egycal/features/goal/presentation/widgets/goal.dart';
 
 class SignUpPage2 extends StatefulWidget {
-  const SignUpPage2({super.key});
+  final SignUpModel signUpModel;
+
+  const SignUpPage2({super.key, required this.signUpModel});
 
   @override
   State<SignUpPage2> createState() => _SignUpPage2State();
@@ -18,12 +19,47 @@ class SignUpPage2 extends StatefulWidget {
 
 class _SignUpPage2State extends State<SignUpPage2> {
   final _formKey = GlobalKey<FormState>();
-  final SignUpModel signUpModel = SignUpModel();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final repeatPasswordController = TextEditingController();
-  final emailController = TextEditingController();
+
+  Future<void> _registerUser() async {
+    try {
+      final auth = FirebaseAuth.instance;
+      final firestore = FirebaseFirestore.instance;
+
+      final userCredential = await auth.createUserWithEmailAndPassword(
+        email: widget.signUpModel.email!,
+        password: widget.signUpModel.password!,
+      );
+
+      await firestore.collection('users').doc(userCredential.user!.uid).set({
+        'firstName': widget.signUpModel.firstName,
+        'secondName': widget.signUpModel.secondName,
+        'email': widget.signUpModel.email,
+        'birthDay': widget.signUpModel.day,
+        'birthMonth': widget.signUpModel.month,
+        'birthYear': widget.signUpModel.year,
+        'createdAt': Timestamp.now(),
+      });
+
+      Get.to(() => Goal());
+
+    } on FirebaseAuthException catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(e.message ?? 'Authentication failed')),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Something went wrong')),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    final signUpModel = widget.signUpModel;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -76,14 +112,15 @@ class _SignUpPage2State extends State<SignUpPage2> {
                   buttonName: 'Sign up',
                   onPressedfn: () {
                     if (_formKey.currentState!.validate()) {
-                      _formKey.currentState!.save(); // Save both fields first
+                      _formKey.currentState!.save();
+
                       if (signUpModel.password != signUpModel.repeatPassword) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text('Passwords do not match')),
                         );
                         return;
                       }
-                      Get.to(Goal());
+                      _registerUser();
                     }
                   },
                 ),

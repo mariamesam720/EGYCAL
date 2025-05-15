@@ -15,7 +15,7 @@ class _ValuePickerState extends State<ValuePicker> {
       FixedExtentScrollController(initialItem: 1);
   final FixedExtentScrollController cmController =
       FixedExtentScrollController(initialItem: 70);
-   String meterUnit = 'm';
+  String meterUnit = 'm';
   String cmUnit = 'cm';
 
   @override

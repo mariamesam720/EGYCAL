@@ -4,9 +4,14 @@ import 'package:egycal/features/home/presentation/widgets/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import '../../../goal/models/additional_user_information.dart';
 
 class AvatarRow extends StatelessWidget {
-  const AvatarRow({super.key});
+  AdditionalUserInformation additionalUserInformationModel;
+  AvatarRow({super.key, required this.additionalUserInformationModel});
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +28,15 @@ class AvatarRow extends StatelessWidget {
                 children: [
                   AvatarImage(
                     image: 'images/Ellipse 8.png',
-                    ontap: () {  Get.to(Home());},
+                    ontap: () {  uploadModel('images/Ellipse 8.png');},
                   ),
                   AvatarImage(
                     image: 'images/Ellipse 9.png',
-                    ontap: () {  Get.to(Home());},
+                    ontap: () { uploadModel('images/Ellipse 9.png');},
                   ),
                   AvatarImage(
                     image: 'images/Ellipse 10.png',
-                    ontap: () {  Get.to(Home());},
+                    ontap: () {  uploadModel('images/Ellipse 10.png');},
                   ),
                 ],
               ),
@@ -46,16 +51,16 @@ class AvatarRow extends StatelessWidget {
               AvatarImage(
                 image: 'images/Ellipse 11.png',
                 ontap: () {
-                  Get.to(Home());
+                  uploadModel('images/Ellipse 11.png');
                 },
               ),
               AvatarImage(
                 image: 'images/Ellipse 12.png',
-                ontap: () {  Get.to(Home());},
+                ontap: () {  uploadModel('images/Ellipse 12.png');},
               ),
               AvatarImage(
                 image: 'images/Ellipse 13.png',
-                ontap: () {  Get.to(Home());},
+                ontap: () {  uploadModel('images/Ellipse 13.png');},
               ),
             ],
           ),
@@ -67,15 +72,15 @@ class AvatarRow extends StatelessWidget {
             children: [
               AvatarImage(
                 image: 'images/Ellipse 14.png',
-                ontap: () {  Get.to(Home());},
+                ontap: () {  uploadModel('images/Ellipse 14.png');},
               ),
               AvatarImage(
                 image: 'images/Ellipse 15.png',
-                ontap: () {  Get.to(Home());},
+                ontap: () { uploadModel('images/Ellipse 15.png');},
               ),
               AvatarImage(
                 image: 'images/Ellipse 16.png',
-                ontap: () {  Get.to(Home());},
+                ontap: () {  uploadModel('images/Ellipse 16.png');},
               ),
             ],
           ),
@@ -83,4 +88,31 @@ class AvatarRow extends StatelessWidget {
       ),
     );
   }
+  void uploadModel(String image) async {
+    additionalUserInformationModel.saveAvatar(image);
+
+    try {
+      final auth = FirebaseAuth.instance;
+      final firestore = FirebaseFirestore.instance;
+      final user = auth.currentUser;
+
+      if (user != null) {
+        await firestore.collection('users').doc(user.uid).update({
+          'goal': additionalUserInformationModel.goal,
+          'activity': additionalUserInformationModel.activity,
+          'meter': additionalUserInformationModel.meter,
+          'cm': additionalUserInformationModel.cm,
+          'weight': additionalUserInformationModel.weight,
+          'avatar': additionalUserInformationModel.avatar,
+        });
+        Get.to(() => Home());
+      } else {
+        Get.snackbar("Error", "User not authenticated. Please sign in again.");
+      }
+    } catch (e) {
+      Get.snackbar("Error", "Failed to save additional information: ${e.toString()}");
+    }
+  }
 }
+
+

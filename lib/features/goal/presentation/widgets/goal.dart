@@ -2,11 +2,13 @@ import 'package:egycal/core/utilis/size_config.dart';
 import 'package:egycal/core/widgets/navigation_buttons.dart';
 import 'package:egycal/core/widgets/custom_outlined_button.dart';
 import 'package:egycal/core/widgets/custom_text.dart';
-import 'package:egycal/features/Activity/presentation/widgets/activity.dart';
+import 'package:egycal/features/activity/presentation/widgets/activity.dart';
 import 'package:egycal/features/goal/provider/goal_provider.dart';
 import 'package:egycal/features/height/presentation/widgets/height.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../models/additional_user_information.dart';
 
 
 class Goal extends StatefulWidget {
@@ -19,6 +21,7 @@ class Goal extends StatefulWidget {
 }
 
 class _GoalState extends State<Goal> {
+  AdditionalUserInformation additionalUserInformationModel = AdditionalUserInformation();
   String selectedgoal = 'lose weight';
   @override
   Widget build(BuildContext context) {
@@ -32,7 +35,7 @@ class _GoalState extends State<Goal> {
             Padding(
               padding: const EdgeInsets.only(top: 20),
               child: CustomText(
-                  tittle: "What’s your goal?",
+                  tittle: "What's your goal?",
                   description:
                       "We will calculate daily calories \n      according to your goal"),
             ),
@@ -42,7 +45,10 @@ class _GoalState extends State<Goal> {
             CustomOutlinedButton(
               text: 'Lose Weight',
               isSelected: goalProvider.isSelected('Lose weight'),
-              onTap: ()=>goalProvider.setGoal('Lose weight')
+              onTap: () {
+                additionalUserInformationModel.saveGoal('Lose weight');
+                goalProvider.setGoal('Lose weight');
+              }
             ),
             SizedBox(
               height: 20,
@@ -50,7 +56,10 @@ class _GoalState extends State<Goal> {
             CustomOutlinedButton(
               text: 'Keep weight',
               isSelected: goalProvider.isSelected('Keep weight'),
-              onTap: ()=>goalProvider.setGoal('Keep weight'),
+              onTap: () {
+                additionalUserInformationModel.saveGoal('Keep weight');
+                goalProvider.setGoal('Keep weight');
+              }
             ),
             SizedBox(
               height: 20,
@@ -58,7 +67,10 @@ class _GoalState extends State<Goal> {
             CustomOutlinedButton(
               text: 'Gain Weight',
               isSelected:goalProvider.isSelected('Gain Weight'),
-              onTap: ()=>goalProvider.setGoal('Gain Weight'),
+              onTap: (){
+                additionalUserInformationModel.saveGoal('Gain Weight');
+                goalProvider.setGoal('Gain Weight');
+              }
               
             ),
             SizedBox(
@@ -68,7 +80,7 @@ class _GoalState extends State<Goal> {
               Navigator.pop(context);
             }, onNext: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Activity()));
+                  context, MaterialPageRoute(builder: (context) => Activity(additionalUserInformationModel: additionalUserInformationModel,)));
             })
           ],
         ),

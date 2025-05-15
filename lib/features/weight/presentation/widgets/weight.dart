@@ -5,8 +5,15 @@ import 'package:egycal/features/create_avatar/presentation/avatar.dart';
 import 'package:egycal/features/weight/presentation/widgets/weight_picker.dart';
 import 'package:flutter/material.dart';
 
+import '../../../goal/models/additional_user_information.dart';
+
 class Weight extends StatefulWidget {
-  const Weight({super.key});
+  const Weight({
+    super.key,
+    required this.additionalUserInformationModel,
+  });
+
+  final AdditionalUserInformation additionalUserInformationModel;
 
   @override
   State<Weight> createState() => _WeightState();
@@ -48,8 +55,10 @@ class _WeightState extends State<Weight> {
               NavigationButtons(onBack: () {
                 Navigator.pop(context);
               }, onNext: () {
+                // we are setting a fixed weight till mariam explains
+                widget.additionalUserInformationModel.saveWeight(60);
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Avatar()));
+                    context, MaterialPageRoute(builder: (context) => Avatar(additionalUserInformationModel: widget.additionalUserInformationModel)));
               })
             ],
           ),
