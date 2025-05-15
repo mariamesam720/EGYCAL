@@ -4,9 +4,14 @@ import 'package:egycal/features/create_avatar/presentation/widgets/circle_avatar
 
 import 'package:flutter/material.dart';
 
-class Avatar extends StatefulWidget {
-  const Avatar({super.key});
+import '../../goal/models/additional_user_information.dart';
 
+class Avatar extends StatefulWidget {
+  const Avatar({
+    super.key,
+    required this.additionalUserInformationModel,
+  });
+  final AdditionalUserInformation additionalUserInformationModel;
   @override
   State<Avatar> createState() => _AvatarState();
 }
@@ -36,7 +41,7 @@ class _AvatarState extends State<Avatar> {
           SizedBox(height: 30,),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: AvatarRow(),
+            child: AvatarRow(additionalUserInformationModel: widget.additionalUserInformationModel),
           ),
         ],
       )

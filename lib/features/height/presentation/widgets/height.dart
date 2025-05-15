@@ -5,14 +5,25 @@ import 'package:egycal/features/height/presentation/widgets/value_picker.dart';
 import 'package:egycal/features/weight/presentation/widgets/weight.dart';
 import 'package:flutter/material.dart';
 
+import '../../../goal/models/additional_user_information.dart';
+
 class Height extends StatefulWidget {
-  const Height({super.key});
+  const Height({
+    super.key,
+    required this.additionalUserInformationModel,
+  });
+
+  final AdditionalUserInformation additionalUserInformationModel;
 
   @override
   State<Height> createState() => _HeightState();
 }
 
 class _HeightState extends State<Height> {
+
+  int meters = 0;
+  int cm =0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,10 +44,9 @@ class _HeightState extends State<Height> {
           Center(
             child: SizedBox(
               height: SizeConfig.defaultSize!*8,
-            
-              child: ValuePicker()),
+              child: ValuePicker()
+            ),
           ),
-          
 
           //Navigation buttons
           SizedBox(
@@ -45,8 +55,11 @@ class _HeightState extends State<Height> {
           NavigationButtons(onBack: () {
             Navigator.pop(context);
           }, onNext: () {
+            // we are setting a fixed height till mariam explains
+            widget.additionalUserInformationModel.saveMeter(meters);
+            widget.additionalUserInformationModel.saveCm(cm);
             Navigator.push(
-                (context), MaterialPageRoute(builder: (context) => Weight()));
+                (context), MaterialPageRoute(builder: (context) => Weight(additionalUserInformationModel: widget.additionalUserInformationModel)));
           })
         ],
       ),

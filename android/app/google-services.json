@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "813388236866",
+    "project_id": "egycal",
+    "storage_bucket": "egycal.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813388236866:android:8a1d9512706956aa19c5db",
+        "android_client_info": {
+          "package_name": "com.example.egycal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB_Xa3nrqrvum48BynHRrHT_b2TcKrNMU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

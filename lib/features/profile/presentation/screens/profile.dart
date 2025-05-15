@@ -8,9 +8,22 @@ import 'package:egycal/features/profile/presentation/widgets/editable_cal.dart';
 import 'package:egycal/features/profile/presentation/widgets/icon.dart';
 import 'package:egycal/features/profile/presentation/widgets/red_icon.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
+import 'package:egycal/features/login/presentation/login_page.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
+
+  Future<void> _logout() async {
+    try {
+      await FirebaseAuth.instance.signOut();
+      Get.offAll(() => const LoginPage());
+    } catch (e) {
+      print("Error signing out: $e");
+      Get.snackbar("Logout Error", "Could not log out. Please try again.", snackPosition: SnackPosition.BOTTOM);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +40,7 @@ class Profile extends StatelessWidget {
               child: avatarimg(
             image: 'images/Ellipse 11.png',
           )),
-          Text(
+          const Text(
             'Ahmed',
             style: TextStyle(
               fontFamily: 'Inter',
@@ -35,7 +48,7 @@ class Profile extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-          Text(
+          const Text(
             'Ahmed@gmail.com',
             style: TextStyle(
               fontFamily: 'Inter',
@@ -47,15 +60,15 @@ class Profile extends StatelessWidget {
             padding: const EdgeInsets.all(5.0),
             child: AccountButton(),
           ),
-          Padding(
-            padding: const EdgeInsets.all(5.0),
+          const Padding(
+            padding: EdgeInsets.all(5.0),
             child: InfoRow(
               title: 'Calorie intake',
               value: '3500 Cal',
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(5.0),
+          const Padding(
+            padding: EdgeInsets.all(5.0),
             child: InfoRow(
               title: 'Weight Unit',
               value: 'Kilograms',
@@ -72,7 +85,7 @@ class Profile extends StatelessWidget {
             icon: Icons.email_outlined,
             onpress: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ContactUs()));
+                  MaterialPageRoute(builder: (context) => const ContactUs()));
             },
             tittle: 'Contact us',
           ),
@@ -80,14 +93,14 @@ class Profile extends StatelessWidget {
             icon: Icons.info_outline_rounded,
             onpress: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => AboutApp()));
+                  context, MaterialPageRoute(builder: (context) => const AboutApp()));
             },
             tittle: 'About app',
           ),
           RedIcon(
             icon1: Icons.logout_outlined,
             name: 'Logout',
-            onpressed: () {},
+            onpressed: _logout,
           ),
         ],
       ),
