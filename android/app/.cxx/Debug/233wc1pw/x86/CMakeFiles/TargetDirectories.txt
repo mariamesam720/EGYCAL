@@ -1,0 +1,2 @@
+C:/Flutter_Projects/Project_repo/EGYCAL/android/app/.cxx/Debug/233wc1pw/x86/CMakeFiles/edit_cache.dir
+C:/Flutter_Projects/Project_repo/EGYCAL/android/app/.cxx/Debug/233wc1pw/x86/CMakeFiles/rebuild_cache.dir

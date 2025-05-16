@@ -1,6 +1,6 @@
 import 'package:egycal/core/widgets/custom_elev_button.dart';
 import 'package:egycal/core/widgets/custom_textfield.dart';
-import 'package:egycal/features/Home/presentation/widgets/home.dart';
+import 'package:egycal/features/Home/presentation/widgets/homeView.dart';
 import 'package:egycal/features/change_password/presentation/change_password_page.dart';
 import 'package:egycal/features/diary/presentation/diary_page.dart';
 import 'package:egycal/features/forgot_reset_passward/presentation/screens/forgot_password_page.dart';
@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
         email: loginModel.email!,
         password: loginModel.password!,
       );
-      Get.offAll(() => const Home()); // Use offAll to remove previous routes
+      Get.offAll(() => Home()); // Use offAll to remove previous routes
     } on FirebaseAuthException catch (e) {
       String message;
       if (e.code == 'user-not-found') {

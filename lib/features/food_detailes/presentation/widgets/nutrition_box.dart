@@ -7,26 +7,23 @@ class NutrientBox extends StatelessWidget {
   final FoodDetailsModel foodDetailsModel;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          rowbuild('${foodDetailsModel.calories}', 'Calories'),
-          SizedBox(
-            width: SizeConfig.defaultSize! * 2,
-          ),
-          rowbuild('${foodDetailsModel.proteins}%', 'Proteins'),
-          SizedBox(
-            width: SizeConfig.defaultSize! * 2,
-          ),
-          rowbuild('${foodDetailsModel.fats}%', 'Fats'),
-          SizedBox(
-            width: SizeConfig.defaultSize! * 2,
-          ),
-          rowbuild('${foodDetailsModel.carbs}%', 'Carbs'),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        rowbuild('${foodDetailsModel.calories}', 'Calories'),
+        SizedBox(
+          width: SizeConfig.defaultSize! * 2,
+        ),
+        rowbuild('${foodDetailsModel.proteins}%', 'Proteins'),
+        SizedBox(
+          width: SizeConfig.defaultSize! * 2,
+        ),
+        rowbuild('${foodDetailsModel.fats}%', 'Fats'),
+        SizedBox(
+          width: SizeConfig.defaultSize! * 2,
+        ),
+        rowbuild('${foodDetailsModel.carbs}%', 'Carbs'),
+      ],
     );
   }
 }

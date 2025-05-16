@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:egycal/features/login/presentation/login_page.dart';
-import 'package:egycal/features/Home/presentation/widgets/home.dart';
+import 'package:egycal/features/Home/presentation/widgets/homeView.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -27,7 +27,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     User? user = FirebaseAuth.instance.currentUser;
 
     if (user != null) {
-      Get.offAll(() => const Home(), transition: Transition.fade);
+      Get.offAll(() => Home(), transition: Transition.fade);
     } else {
       // User is not logged in, check if onboarding was completed
       SharedPreferences prefs = await SharedPreferences.getInstance();

@@ -1,5 +1,6 @@
 import 'package:egycal/core/widgets/bottom_nav_bar.dart';
 import 'package:egycal/features/diary/presentation/models/meal_model.dart';
+import 'package:egycal/features/diary/presentation/widgets/add_meal.dart';
 import 'package:egycal/features/diary/presentation/widgets/avatar.dart';
 import 'package:egycal/features/diary/presentation/widgets/meal_card.dart';
 import 'package:egycal/features/diary/presentation/widgets/nutrients_indicator.dart';
@@ -13,6 +14,7 @@ class DiaryPage extends StatefulWidget {
 }
 
 class _DiaryPageState extends State<DiaryPage> {
+  final List<MealModel> meals = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,19 +96,9 @@ class _DiaryPageState extends State<DiaryPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text('Meals',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16)),
-                    IconButton(
-                      icon: const Icon(Icons.add),
-                      onPressed: () {
-                        
-                      },
-                    ),
                   ],
                 ),
-                MyWidget(meals: MealModel(name: 'Breakfast', calories: 44)),
-                MyWidget(meals: MealModel(name: 'Lunch', calories: 444)),
+                MealCard(),
               ],
             ),
             

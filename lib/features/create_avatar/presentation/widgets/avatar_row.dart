@@ -1,6 +1,6 @@
 import 'package:egycal/features/create_avatar/presentation/widgets/circle_avatar.dart';
 import 'package:egycal/features/diary/presentation/widgets/avatar.dart';
-import 'package:egycal/features/home/presentation/widgets/home.dart';
+import 'package:egycal/features/Home/presentation/widgets/homeView.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
