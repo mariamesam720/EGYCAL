@@ -1,68 +1,159 @@
 import 'package:egycal/core/utilis/size_config.dart';
-import 'package:egycal/core/widgets/navigation_buttons.dart';
-import 'package:egycal/core/widgets/custom_outlined_button.dart';
-import 'package:egycal/core/widgets/custom_text.dart';
-import 'package:egycal/features/gender/provider/gender_provider.dart';
-import 'package:egycal/features/goal/presentation/widgets/goal.dart';
+import 'package:egycal/features/height/presentation/widgets/centimeters.dart';
+import 'package:egycal/features/height/presentation/widgets/meters.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-class Gender extends StatefulWidget {
-  final PageController controller;
-
-  const Gender({super.key, required this.controller});
+class ValuePicker extends StatefulWidget {
+  const ValuePicker({super.key});
 
   @override
-  State<Gender> createState() => _GenderState();
+  State<ValuePicker> createState() => _ValuePickerState();
 }
 
-class _GenderState extends State<Gender> {
+class _ValuePickerState extends State<ValuePicker> {
+  final FixedExtentScrollController meterController =
+      FixedExtentScrollController(initialItem: 1);
+  final FixedExtentScrollController cmController =
+      FixedExtentScrollController(initialItem: 70);
+
+  String meterUnit = 'm';
+  String cmUnit = 'cm';
+
+  int selectedMeter = 1;
+  int selectedCm = 70;
+
+  double get heightInCm {
+    if (meterUnit == 'm') {
+      return selectedMeter * 100 + selectedCm.toDouble();
+    } else {
+      return (selectedMeter * 30.48) + (selectedCm * 2.54);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final genderProvider = Provider.of<GenderProvider>(context);
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisSize:
-              MainAxisSize.min, // Ensure the Column takes minimum space
+    return Stack(children: [
+      Padding(
+        padding: const EdgeInsets.only(left: 15, right: 15),
+        child: Row(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 50),
-              child: CustomText(
-                  tittle: "What’s your gender?",
-                  description: "Male bodies need more calories"),
-            ),
-            SizedBox(
-              height: 140,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 38),
-              child: CustomOutlinedButton(
-                text: 'Male',
-                isSelected: genderProvider.isSelected(GenderProvider.maleGender),
-                onTap: ()=>genderProvider.setGender(GenderProvider.maleGender)
+            Expanded(
+              child: SizedBox(
+                width: SizeConfig.defaultSize! * 25,
+                child: ListWheelScrollView.useDelegate(
+                  controller: meterController,
+                  itemExtent: 50,
+                  perspective: 0.003,
+                  diameterRatio: 1.5,
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  onSelectedItemChanged: (index) {
+                    setState(() {
+                      selectedMeter = index;
+                    });
+                  },
+                  childDelegate: ListWheelChildBuilderDelegate(
+                    builder: (context, index) {
+                      return Meters(number: index);
+                    },
+                    childCount: (meterUnit == 'm') ? 3 : 8,
+                  ),
+                ),
               ),
             ),
-            SizedBox(
-              height: 20,
+
+            // Meters/Feet Dropdown
+            Expanded(
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton<String>(
+                  padding: const EdgeInsets.only(right: 30),
+                  iconSize: 22,
+                  iconEnabledColor: const Color(0xFF0D1220),
+                  value: meterUnit,
+                  items: ['m', 'feet'].map((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(
+                        value,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontFamily: 'Inter',
+                          color: Color(0xFF337277),
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                  onChanged: (value) {
+                    setState(() {
+                      meterUnit = value!;
+                      meterController.jumpToItem(0);
+                      selectedMeter = 0;
+                    });
+                  },
+                ),
+              ),
             ),
-            CustomOutlinedButton(
-              text: 'Female',
-              onTap: () =>genderProvider.setGender(GenderProvider.femaleGender),
-              isSelected: genderProvider.isSelected(GenderProvider.femaleGender)
+
+            // CM/Inches Wheel
+            Expanded(
+              child: SizedBox(
+                width: SizeConfig.defaultSize! * 10,
+                child: ListWheelScrollView.useDelegate(
+                  controller: cmController,
+                  itemExtent: 40,
+                  perspective: 0.003,
+                  diameterRatio: 1.5,
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  onSelectedItemChanged: (index) {
+                    setState(() {
+                      selectedCm = index;
+                    });
+                  },
+                  childDelegate: ListWheelChildBuilderDelegate(
+                    builder: (context, index) {
+                      return Centimeter(cm: index);
+                    },
+                    childCount: (cmUnit == 'cm') ? 100 : 12,
+                  ),
+                ),
+              ),
             ),
-            SizedBox(
-              height: SizeConfig.defaultSize! * 20,
+
+            // CM/Inches Dropdown
+            Expanded(
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton<String>(
+                  padding: const EdgeInsets.only(right: 30),
+                  iconSize: 22,
+                  iconEnabledColor: const Color(0xFF0D1220),
+                  value: cmUnit,
+                  items: ['cm', 'in'].map((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(
+                        value,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontFamily: 'Inter',
+                          color: Color(0xFF337277),
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                  onChanged: (value) {
+                    setState(() {
+                      cmUnit = value!;
+                      cmController.jumpToItem(0);
+                      selectedCm = 0;
+                    });
+                  },
+                ),
+              ),
             ),
-            NavigationButtons(onBack: () {
-              Navigator.pop(context);
-            }, onNext: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => Goal()));
-            })
           ],
         ),
       ),
-    );
+    ]);
   }
 }
+
+

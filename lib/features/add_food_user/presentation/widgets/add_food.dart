@@ -75,26 +75,7 @@ class AddFood extends StatelessWidget {
 
             const SizedBox(height: 5),
             // Allergens & Dietary Info Section
-            AddFoodPreferencesScreen(),
-            const SizedBox(height: 20),
-
-            SizedBox(
-              width: 96,
-              height: 37,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF152D2F)),
-                onPressed: () {
-                  // Handle Save logic here
-                  print(provider.foodName);
-                },
-                child: Text(
-                  'Save',
-                  style: TextStyle(
-                      fontSize: 12, fontFamily: 'Inter', color: Colors.white),
-                ),
-              ),
-            )
+          
           ],
         ),
       ),
