@@ -15,7 +15,7 @@ class WeightRecord extends StatelessWidget{
     return Padding(
       padding: const EdgeInsets.only(left:36, right: 36, bottom:10),
       child: Container(
-          width: 328,
+          width: 300,
           height: 39,
           decoration: BoxDecoration(
             color: Color(0xfff7f7f7),
@@ -24,6 +24,7 @@ class WeightRecord extends StatelessWidget{
           child: Padding(
             padding: const EdgeInsets.only(left:15),
             child: Row(
+              
               children: [
                 Text(
                   formattedDate,

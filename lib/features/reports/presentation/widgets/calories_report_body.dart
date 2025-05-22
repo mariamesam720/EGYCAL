@@ -66,10 +66,8 @@ class CaloriesReportBody extends StatelessWidget{
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 260),
-                child: Icon(Icons.add),
-              )
+              Spacer(),
+              Icon(Icons.add)
             ],
           ),
         ),

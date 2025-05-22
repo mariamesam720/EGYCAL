@@ -2,19 +2,24 @@ import 'package:egycal/core/utilis/size_config.dart';
 import 'package:egycal/features/create_avatar/presentation/widgets/circle_avatar.dart';
 import 'package:egycal/features/Home/presentation/widgets/CustomClipper.dart';
 import 'package:egycal/features/Home/presentation/widgets/calories_wheel.dart';
+import 'package:egycal/features/home/provider/home_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CalorieIntake extends StatelessWidget {
   const CalorieIntake({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final caloriesProvider = Provider.of<CaloriesProvider>(context);
+    final percent = (caloriesProvider.progressPercent * 100).toStringAsFixed(0);
+    final baseGoal = caloriesProvider.goal.toInt(); 
     return ClipPath(
       
       clipper: Customclipper(),
       child: Container(
         width: SizeConfig.screenWidth,
-        height: SizeConfig.screenHeight!*0.4,
+        height: 300,
       
         decoration: BoxDecoration(
           gradient: LinearGradient(colors:[Color(0xFF152D2F),Color(0xFF438F95)],
@@ -56,13 +61,26 @@ class CalorieIntake extends StatelessWidget {
                     child: Text(
                       'Your progress',
                       style: TextStyle(
-                        fontSize: 20,
-                        fontFamily: 'Carrois Gothic',
+                        fontSize: 15,
+                        fontFamily: 'Roboto',
                         color: Colors.white,
                         
                       ),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text(
+                      '$percent %',
+                      style: TextStyle(
+                        fontSize: 55,
+                        fontFamily: 'Roboto',
+                        color: Colors.white,
+                        
+                      ),
+                    ),
+                  ),
+                  
                   
                   Padding(
                     padding: const EdgeInsets.only(left: 10
@@ -71,7 +89,7 @@ class CalorieIntake extends StatelessWidget {
                       'Remaining = Goal-Food',
                       style: TextStyle(
                         fontSize: 10,
-                        fontFamily: 'Carrois Gothic',
+                        fontFamily: 'Roboto',
                         color: Colors.white
                       ),
                     ),
@@ -82,7 +100,19 @@ class CalorieIntake extends StatelessWidget {
                       'Base Goal',
                       style: TextStyle(
                         fontSize: 20,
-                        fontFamily: 'Carrois Gothic',
+                        fontFamily: 'Roboto',
+                        color: Colors.white,
+                        
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text(
+                      '$baseGoal',
+                      style: TextStyle(
+                        fontSize: 40,
+                        fontFamily: 'Roboto',
                         color: Colors.white,
                         
                       ),
@@ -91,13 +121,10 @@ class CalorieIntake extends StatelessWidget {
                 ],
               ),
             ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 20,),
-            child: SizedBox(
-              width: 100,
-              height: 162.74,
-            child: CaloriesWheel()
-            ),
+          SizedBox(
+            width: 80,
+            height: 170,
+          child: CaloriesWheel()
           ),
       
           ],

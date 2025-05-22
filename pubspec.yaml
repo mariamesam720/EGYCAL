@@ -91,7 +91,12 @@ flutter:
     - family: Inter
       fonts:
         - asset: assets/Fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf 
-        - asset: assets/Fonts/Inter/Inter-VariableFont_opsz,wght.ttf    
+        - asset: assets/Fonts/Inter/Inter-VariableFont_opsz,wght.ttf 
+    - family: Roboto
+      fonts:
+        - asset: assets/Fonts/Roboto/Roboto-Italic-VariableFont_wdth,wght.ttf
+        - asset: assets/Fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf
+          
    
   #For details regarding fonts from package dependencies,
   #see https://flutter.dev/to/font-from-package

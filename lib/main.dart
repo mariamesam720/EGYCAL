@@ -3,7 +3,10 @@ import 'package:egycal/features/add_food_user/provider/food_provider.dart';
 import 'package:egycal/features/favorites/presentation/controller/favorites_controller.dart';
 import 'package:egycal/features/gender/provider/gender_provider.dart';
 import 'package:egycal/features/goal/provider/goal_provider.dart';
+import 'package:egycal/features/home/presentation/widgets/home.dart';
+import 'package:egycal/features/home/provider/home_provider.dart';
 import 'package:egycal/features/profile/presentation/provider/acc_delete_provider.dart';
+import 'package:egycal/features/weight/presentation/widgets/weight.dart';
 import 'package:egycal/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,6 +26,7 @@ void main() async {
         ChangeNotifierProvider(create: (_)=>AccDeleteProvider()),
         ChangeNotifierProvider(create: (_)=>FoodProvider()),
         ChangeNotifierProvider(create: (_)=>FoodContainProvider()),
+        ChangeNotifierProvider(create: (_)=>CaloriesProvider()),
         ],
         child: const EgyCal()),
   );
