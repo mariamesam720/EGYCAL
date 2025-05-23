@@ -20,7 +20,7 @@ class NavigationButtons extends StatelessWidget {
         ),
             Padding(
               padding: const EdgeInsets.only(top: 25,right: 10),
-              child: FloatingActionButton(onPressed: onNext,backgroundColor: Color(0xFF337277),
+              child: FloatingActionButton(onPressed: onNext,backgroundColor: Color(0xFF152D2F),
               shape: CircleBorder(),
               child: Icon(Icons.navigate_next, color: Colors.white,size: 28),),
             )

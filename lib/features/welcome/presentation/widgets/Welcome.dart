@@ -44,7 +44,7 @@ class Welcome extends StatelessWidget {
               Get.to(() => LoginPage());
              },
             style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFF337277),
+              backgroundColor: Color(0xFF152D2F),
             shape:RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             fixedSize: Size(312, 52),
             padding: EdgeInsets.symmetric(horizontal: 24,vertical: 12)

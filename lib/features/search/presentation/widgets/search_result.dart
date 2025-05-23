@@ -13,13 +13,24 @@ class SearchResult extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () {
+        if (searchController.isLoading.value) {
+          return const Center(child: CircularProgressIndicator());
+        }
         final results = searchController.filteredFoods;
-        if (results.isEmpty) {
+        if (results.isEmpty && searchController.searchText.value.isNotEmpty) {
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Text('No results found.',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
+              Text('Try a different search term.',style: TextStyle(color: Colors.grey,fontSize: 14),),
+            ],
+          );
+        } else if (results.isEmpty && searchController.searchText.value.isEmpty) {
+           return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
               Text('Empty',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
-              Text('Type a food name',style: TextStyle(color: Colors.grey,fontSize: 14),),
+              Text('Type a food name to search',style: TextStyle(color: Colors.grey,fontSize: 14),),
 
             ],
           );
@@ -31,7 +42,7 @@ class SearchResult extends StatelessWidget {
               final food = results[index];
               return GestureDetector(
                 child: FoodCard(food: food),
-                onTap: () => Get.to(FoodDetailsPage(allFoods: results, selectedFood: food,)),
+                onTap: () => Get.to(() => FoodDetailsPage(allFoods: results, selectedFood: food,)),
               );
             },
           ),

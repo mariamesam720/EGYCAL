@@ -1,5 +1,5 @@
 import 'package:egycal/core/utilis/size_config.dart';
-import 'package:egycal/features/food_detailes/presentation/models/food_details_mode.dart';
+import 'package:egycal/features/food_detailes/presentation/models/food_details_model.dart';
 import 'package:flutter/material.dart';
 
 class NutrientBox extends StatelessWidget {
@@ -9,23 +9,26 @@ class NutrientBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(10),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          rowbuild('${foodDetailsModel.calories}', 'Calories'),
-          SizedBox(
-            width: SizeConfig.defaultSize! * 2,
-          ),
-          rowbuild('${foodDetailsModel.proteins}%', 'Proteins'),
-          SizedBox(
-            width: SizeConfig.defaultSize! * 2,
-          ),
-          rowbuild('${foodDetailsModel.fats}%', 'Fats'),
-          SizedBox(
-            width: SizeConfig.defaultSize! * 2,
-          ),
-          rowbuild('${foodDetailsModel.carbs}%', 'Carbs'),
-        ],
+      child: Container(
+        
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            rowbuild('${foodDetailsModel.calories}', 'Calories'),
+            SizedBox(
+              width: SizeConfig.defaultSize! * 1.5,
+            ),
+            rowbuild('${foodDetailsModel.proteins}%', 'Proteins'),
+            SizedBox(
+              width: SizeConfig.defaultSize! * 1.5,
+            ),
+            rowbuild('${foodDetailsModel.fats}%', 'Fats'),
+            SizedBox(
+              width: SizeConfig.defaultSize! * 1.5,
+            ),
+            rowbuild('${foodDetailsModel.carbs}%', 'Carbs'),
+          ],
+        ),
       ),
     );
   }

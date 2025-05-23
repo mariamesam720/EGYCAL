@@ -1,6 +1,6 @@
 import 'package:egycal/features/Home/presentation/widgets/home.dart';
 import 'package:egycal/features/favorites/favorites_page.dart';
-import 'package:egycal/features/food_detailes/presentation/models/food_details_mode.dart';
+import 'package:egycal/features/food_detailes/presentation/models/food_details_model.dart';
 import 'package:egycal/features/profile/presentation/screens/profile.dart';
 import 'package:egycal/features/search/presentation/search_page.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +17,6 @@ class CustomBottomNavBar extends StatelessWidget {
     List<FoodDetailsModel> allFoods = [
       FoodDetailsModel(
         engname: "Mahshi",
-        arname: 'محشي',
         imagePath: "images/mahshi.png",
         calories: 164,
         proteins: 5,
@@ -75,7 +74,7 @@ class CustomBottomNavBar extends StatelessWidget {
               icon: Icons.search,
               text: 'Search',
               onPressed: () {
-                Get.to(() => SearchPage(allFoods: allFoods));
+                Get.to(() => SearchPage());
               },
             ),
             GButton(

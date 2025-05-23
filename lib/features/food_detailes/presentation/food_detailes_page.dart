@@ -1,5 +1,5 @@
 import 'package:egycal/features/food_detailes/presentation/models/dietary_info_model.dart';
-import 'package:egycal/features/food_detailes/presentation/models/food_details_mode.dart';
+import 'package:egycal/features/food_detailes/presentation/models/food_details_model.dart';
 import 'package:egycal/features/food_detailes/presentation/widgets/dietary_info.dart';
 import 'package:egycal/features/food_detailes/presentation/widgets/display_image.dart';
 import 'package:egycal/features/food_detailes/presentation/widgets/food_info.dart';
@@ -38,7 +38,7 @@ class FoodDetailsPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          FoodImageHeader(imagePath: selectedFood.imagePath),
+
           FoodInfo(selectedFood),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -52,7 +52,7 @@ class FoodDetailsPage extends StatelessWidget {
               children: [
                 NutritionTable(nutritionFacts: selectedFood.nutritionFacts),
                 Divider(thickness: 1, color: Colors.grey, indent: 12, endIndent: 12),
-                DietaryInfo(info: info),
+
               ],
             ),
           ),
