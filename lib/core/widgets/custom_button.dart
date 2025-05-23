@@ -18,7 +18,7 @@ class NextCustomButton extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             shape: CircleBorder(),
             padding: EdgeInsets.all(20),
-            backgroundColor: Color(0xFF102A43),
+            backgroundColor: Color(0xFF152D2F),
           ),
           child: Icon(
             Icons.navigate_next,

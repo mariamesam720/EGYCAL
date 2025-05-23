@@ -38,7 +38,7 @@ class FoodDetailsPage extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Column(
         children: [
-          FoodImageHeader(imagePath: selectedFood.imagePath),
+
           FoodInfo(selectedFood),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
