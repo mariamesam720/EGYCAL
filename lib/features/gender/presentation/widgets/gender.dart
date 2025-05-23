@@ -3,14 +3,15 @@ import 'package:egycal/features/height/presentation/widgets/centimeters.dart';
 import 'package:egycal/features/height/presentation/widgets/meters.dart';
 import 'package:flutter/material.dart';
 
-class ValuePicker extends StatefulWidget {
-  const ValuePicker({super.key});
+class Gender extends StatefulWidget {
+  final PageController controller;
+  const Gender({super.key, required this.controller});
 
   @override
-  State<ValuePicker> createState() => _ValuePickerState();
+  State<Gender> createState() => _GenderState();
 }
 
-class _ValuePickerState extends State<ValuePicker> {
+class _GenderState extends State<Gender> {
   final FixedExtentScrollController meterController =
       FixedExtentScrollController(initialItem: 1);
   final FixedExtentScrollController cmController =

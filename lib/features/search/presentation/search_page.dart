@@ -3,18 +3,18 @@ import 'package:egycal/features/search/presentation/widgets/search_field.dart';
 import 'package:egycal/features/search/presentation/widgets/search_result.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../food_detailes/presentation/models/food_details_mode.dart';
+// import '../../food_detailes/presentation/models/food_details_model.dart'; // No longer needed here
 
 class SearchPage extends StatelessWidget {
-  final List<FoodDetailsModel> allFoods;
+  // final List<FoodDetailsModel> allFoods; // Removed allFoods
 
-  SearchPage({super.key, required this.allFoods});
+  SearchPage({super.key}); // Removed required this.allFoods
 
   final SearchControllerr searchController = Get.put(SearchControllerr());
 
   @override
   Widget build(BuildContext context) {
-    searchController.setFoodList(allFoods);
+    // searchController.setFoodList(allFoods); // Removed this line
 
     return Scaffold(
       backgroundColor: Colors.white,

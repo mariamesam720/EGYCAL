@@ -11,6 +11,7 @@ import 'package:egycal/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'features/search/presentation/data/search_food_service.dart';
 import 'features/splash/presentation/splash_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 

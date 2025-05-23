@@ -1,5 +1,5 @@
 import 'package:egycal/features/favorites/presentation/controller/favorites_controller.dart';
-import 'package:egycal/features/food_detailes/presentation/models/food_details_mode.dart';
+import 'package:egycal/features/food_detailes/presentation/models/food_details_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,12 +14,23 @@ class FoodCard extends StatelessWidget {
       child: Stack(children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(20),
-          child: Image.asset(
-            food.imagePath,
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: 180,
-          ),
+          child: food.imagePath != null && food.imagePath!.isNotEmpty
+              ? Image.asset(
+                  food.imagePath!,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: 180,
+                )
+              : Container(
+                  width: double.infinity,
+                  height: 180,
+                  color: Colors.grey[300], // Placeholder color
+                  child: Icon(
+                    Icons.restaurant_menu, // Placeholder icon
+                    color: Colors.grey[600],
+                    size: 60,
+                  ),
+                ),
         ),
         Positioned(
           left: 0,
@@ -39,12 +50,12 @@ class FoodCard extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('${food.engname} ${food.arname}',
+                    Text(food.engname,
                         style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                         )),
-                    Text('${food.calories.toStringAsFixed(1)} cal',
+                    Text('${food.calories!.toStringAsFixed(1)} cal',
                         style: const TextStyle(color: Colors.white70)),
                   ],
                 ),

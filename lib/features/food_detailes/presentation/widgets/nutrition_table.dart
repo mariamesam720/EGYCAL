@@ -1,4 +1,4 @@
-import 'package:egycal/features/food_detailes/presentation/models/food_details_mode.dart';
+import 'package:egycal/features/food_detailes/presentation/models/food_details_model.dart';
 import 'package:flutter/material.dart';
 
 class NutritionTable extends StatelessWidget {
@@ -22,7 +22,7 @@ class NutritionTable extends StatelessWidget {
                 'Serving Size',
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
-              Text(nutritionFacts.servingSize,
+              Text('100gm' ,
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             ],
           ),

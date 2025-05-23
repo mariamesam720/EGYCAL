@@ -1,4 +1,4 @@
-import 'package:egycal/features/food_detailes/presentation/models/food_details_mode.dart';
+import 'package:egycal/features/food_detailes/presentation/models/food_details_model.dart';
 import 'package:get/get.dart';
 
 class FavoritesController extends GetxController {

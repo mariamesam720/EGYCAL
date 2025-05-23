@@ -1,5 +1,5 @@
 import 'package:egycal/features/favorites/presentation/controller/favorites_controller.dart';
-import 'package:egycal/features/food_detailes/presentation/models/food_details_mode.dart';
+import 'package:egycal/features/food_detailes/presentation/models/food_details_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -24,9 +24,6 @@ Widget FoodInfo(FoodDetailsModel food) {
                     SizedBox(
                       width: 20,
                     ),
-                    Text(food.arname,
-                        style: TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.bold)),
                   ],
                 ),
                 Text("${food.calories} cal",

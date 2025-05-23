@@ -1,7 +1,7 @@
 import 'package:egycal/core/widgets/bottom_nav_bar.dart';
 import 'package:egycal/features/favorites/presentation/controller/favorites_controller.dart';
 import 'package:egycal/features/food_detailes/presentation/food_detailes_page.dart';
-import 'package:egycal/features/food_detailes/presentation/models/food_details_mode.dart';
+import 'package:egycal/features/food_detailes/presentation/models/food_details_model.dart';
 import 'package:egycal/core/widgets/food_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,7 +10,6 @@ class FoodListPage extends StatelessWidget {
   final List<FoodDetailsModel> foodList = [
     FoodDetailsModel(
       engname: "Mahshi",
-      arname: 'محشي',
       imagePath: "images/mahshi.png",
       calories: 164,
       proteins: 5,
@@ -40,7 +39,6 @@ class FoodListPage extends StatelessWidget {
     ),
     FoodDetailsModel(
       engname: "Mahshi2",
-      arname: '2محشي',
       imagePath: "images/mahshi.png",
       calories: 164,
       proteins: 5,
